@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { BsGithub, BsTwitter } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -14,11 +13,8 @@ interface Project {
   type: string;
 }
 
-interface ProjectCardProps {
-  project: Project;
-}
 
-const ProjectCard: React.FC<ProjectCardProps> = (props) => {
+const ProjectCard = ({project} : { project: Project }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: -50 }}
@@ -28,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = (props) => {
       <div className="grid grid-cols-1 col-span-1 gap-8 p-8 lg:grid-cols-2">
         <div className="overflow-hidden rounded-xl max-h-[250px]">
           <img
-            src={props.project.imgSrc}
+            src={project.imgSrc}
             alt=""
             className="object-cover col-span-1 transition-all duration-150 ease-in cursor-pointer md:h-full"
           />
@@ -39,9 +35,9 @@ const ProjectCard: React.FC<ProjectCardProps> = (props) => {
               Software
             </span>
           </div>
-          <h1 className="text-2xl font-semibold">{props.project.name}</h1>
+          <h1 className="text-2xl font-semibold">{project.name}</h1>
           <p className="max-w-md text-sm text-catppuccinSubtext1">
-            {props.project.description}
+            {project.description}
           </p>
           <div className="flex gap-2">
             <Link to={"/"}>

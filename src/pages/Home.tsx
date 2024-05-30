@@ -145,52 +145,52 @@ const PersonalInfoWindow = () => {
   );
 };
 
-const Grid = () => {
-  return (
-    <section
-      id="hero"
-      className="grid grid-cols-8 md:grid-cols-12 gap-4 h-[70vh] bg-black "
-    >
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="grid col-span-12 row-span-2 place-items-center rounded-xl border border-white hover:animate-pulse bg-slate-600"
-      >
-        1
-      </motion.div>
-      <div
-        // initial={{
-        //   // visibility: 'hidden',
-        //   scale: 0
-        // }}
-        // animate={{
-        //   // visibility: 'visible',
-        //   scale: 1
-        // }}
-        // exit={{
-        //   rotate:'180deg',
-        // }}
-        // transition={{
-        //   duration: 1,
-        //   type: 'spring'
-        // }}
+// const Grid = () => {
+//   return (
+//     <section
+//       id="hero"
+//       className="grid grid-cols-8 md:grid-cols-12 gap-4 h-[70vh] bg-black "
+//     >
+//       <motion.div
+//         initial={{ opacity: 0, y: -50 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.5 }}
+//         className="grid col-span-12 row-span-2 place-items-center rounded-xl border border-white hover:animate-pulse bg-slate-600"
+//       >
+//         1
+//       </motion.div>
+//       <div
+//         // initial={{
+//         //   // visibility: 'hidden',
+//         //   scale: 0
+//         // }}
+//         // animate={{
+//         //   // visibility: 'visible',
+//         //   scale: 1
+//         // }}
+//         // exit={{
+//         //   rotate:'180deg',
+//         // }}
+//         // transition={{
+//         //   duration: 1,
+//         //   type: 'spring'
+//         // }}
 
-        className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse"
-      >
-        1
-      </div>
-      <div className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse">
-        1
-      </div>
-      <div className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse">
-        1
-      </div>
-      <div className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse">
-        1
-      </div>
-    </section>
-  );
-};
+//         className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse"
+//       >
+//         1
+//       </div>
+//       <div className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse">
+//         1
+//       </div>
+//       <div className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse">
+//         1
+//       </div>
+//       <div className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse">
+//         1
+//       </div>
+//     </section>
+//   );
+// };
 
 export default Home;

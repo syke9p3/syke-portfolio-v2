@@ -2,12 +2,9 @@ import React from "react";
 
 
 
-interface Props {
-  children: React.ReactElement | React.ReactElement[];
-  header?: string; 
-}
 
-const Window: React.FC<Props> = ({ header, children }) => {
+
+const Window = ({header, children}: { header?: string, children: React.ReactNode }) => {
   return (
     <div className="overflow-hidden w-full rounded-xl border-2 border-gray-800 shadow-xl duration-75 ease-in transtion-all text-catppuccinSubtext1 bg-catppuccinMantle min-h-32 hover:border-catppuccinPeach group">
       {header &&

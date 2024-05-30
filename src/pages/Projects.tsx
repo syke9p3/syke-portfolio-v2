@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import ProjectCard from "../components/ProjectCard.tsx";
-import { motion } from "framer-motion";
-import { BsGithub, BsSearch } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import projects from "../data/projects.ts";
 import Window from "../components/Window.tsx";
 import {
@@ -12,7 +11,7 @@ import {
 } from "react-icons/fa6";
 import { CgClose } from "react-icons/cg";
 import { FiFigma } from "react-icons/fi";
-import { DiHtml5, DiPhotoshop } from "react-icons/di";
+import { DiHtml5 } from "react-icons/di";
 import { SiAdobephotoshop } from "react-icons/si";
 import { Helmet } from 'react-helmet';
 
@@ -57,7 +56,7 @@ const Projects = () => {
     </Helmet>
       <main className="flex flex-col min-h-[90vh] py-8 container mx-auto">
         <div className="flex flex-col gap-6">
-          <Window title="Syke9p3 - Projects">
+          <Window header="Syke9p3 - Projects">
             {/* Filter */}
             {/* <div className="grid grid-cols-2 px-1 pt-3 rounded-xl md:grid-cols-4 bg-[#21133d]"> */}
             <div className="grid grid-cols-2 md:flex px-1 bg-[#21133d] gap-1 p-1">
@@ -120,11 +119,10 @@ const Projects = () => {
 
             <ul className="flex flex-wrap gap-4 p-12 rounded-xl bg-catppuccinMantle">
               {projects.map((project, i) => (
-                  <Window>
-                    <ProjectCard project={project} />
+                  <Window key={i}>
+                    {project && <ProjectCard project={project} />}
                   </Window>
               ))}
-
             </ul>
           </Window>
         </div>
