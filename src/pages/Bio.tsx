@@ -1,7 +1,3 @@
-import React, { useEffect, useState } from "react";
-import ProjectCard from "../components/ProjectCard.tsx";
-import { motion } from "framer-motion";
-import { BsGithub, BsSearch } from "react-icons/bs";
 import { Helmet } from "react-helmet";
 
 const Bio = () => {
