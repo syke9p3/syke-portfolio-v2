@@ -1,0 +1,19 @@
+# Syke Portfolio 
+
+# Todo
+~~1. syke logo~~
+~~2. json data for projects~~
+3. Add icons to Projects tab menu items
+4. Casual tone for section subheaders
+5. Look for inspiration in penpot website
+6. Mention the inspirations (catppuccin, linux mint)
+7. Grid like background in banner
+
+in bio:
+- add tech stack with rofi theme
+
+
+# Planned Features
+1. gallery
+2. lightbox
+3. theming (light mode)
