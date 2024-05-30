@@ -151,4 +151,3 @@ ehthumbs.db
 .env.*.local
 bun.lockb
 vite.config.ts.timestamp-*
-package-lock.json
