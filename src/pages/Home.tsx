@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import Window from "../components/Window";
-import { CgChevronRight } from "react-icons/cg";
+import { CgChevronRight, CgFile } from "react-icons/cg";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import TextAnim from "../components/animation/CursorBlinker";
+import { useState } from "react";
 
 const Home = () => {
   return (
@@ -9,6 +12,7 @@ const Home = () => {
       <Helmet>
         <title>Kenth Saya-ang Portfolio</title>
       </Helmet>
+
       <main className="min-h-[400px] container mx-auto 80)] bg-cover bg-center bg-no-repeat">
         <Hero />
         {/* <Grid /> */}
@@ -21,82 +25,149 @@ const Hero = () => {
   return (
     <>
       <section id="hero" className="grid py-12 lg:grid-cols-2">
-        <div className="flex flex-col justify-center items-center my-12 sm:flex-row">
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col gap-2"
-          >
-            <p className="text-5xl font-bold lg:text-6xl">
-              Hello I'm <span className="text-catppuccinRed">Kenth</span>!
-            </p>
-            <p className="max-w-sm text-sm leading-relaxed lg:text-md text-catppuccinSubtext1">
-              aspiring <span className="text-cat text-catppuccinBlue">software developer</span> | <span className="m text-catppuccinYellow">ui designer</span>
-            </p>
-            <div className="flex mt-8 max-w-sm text-sm leading-relaxed">
-              <span className="pt-1 pr-2 -ml-2 text-catppuccinRed">
-                <CgChevronRight />
-              </span>
-              Better description of what I do (im a web developer with React,
-              Tailwind CSS)
-            </div>
-          </motion.div>
-        </div>
-
+        <BannerText />
         {/* <div className="flex flex-col gap-6 items-start md:space-y-12 md:flex-row"> */}
         <div className="flex relative flex-col justify-center items-center w-full min-h-72">
-          <div className="relative w-[70%]">
+          <div className="relative w-full md:w-[70%]">
             <PersonalInfoWindow />
           </div>
-          <div className="relative w-[70%] mt-8 lg:-mt-8 lg:ml-16">
+          <div className="relative w-full md:w-[75%] mt-8 lg:-mt-8 lg:ml-16">
             <AboutMeWindow />
           </div>
         </div>
+
       </section>
+      {/* <div className="flex justify-center py-6 mt-12">
+        <p className="text-xs leading-relaxed text-[#9fa4b3c4] opacity-80">My website was inspired from <span className="text-catppuccinYellow">Catpuccin Mocha</span> theme and my <span className="text-catppuccinGreen">Linux Mint</span> setup.</p>
+      </div> */}
     </>
   );
 };
 
-const AboutMeWindow = () => {
+const BannerText = () => {
   return (
-    <Window header="About me">
-      <div
-        className="items-center p-1 leading-[1.6em] relative"
-        style={{ fontFamily: "Fira Code" }}
+    <div className="grid relative flex-col place-content-center py-12 pb-24 sm:flex sm:flex-row">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex relative flex-col gap-3"
       >
-        <div className="">
-          <div className="px-2 mb-2 align-middle text-catppuccinBase bg-catppuccinSubtext0">
-            GNU Nano
-          </div>
+        {/* <div className="b">
+          <span className="p-1 my-2">@syke9p3</span>
+        </div> */}
+        <p className="text-5xl font-bold lg:text-6xl">
+          Hello I'm <span className="text-catppuccinRed">Kenth</span>!
+        </p>
+          {/* <hr className="mb-2 opacity-20" /> */}
+        <Selection />
+        <div className="flex flex-col mt-4 max-w-md leading-relaxed text-catppuccinSubtext1">
+          Better description of what I do (im a web developer with React,
+          Tailwind CSS) I'm quite passionate about learning anything I find
+          interesting.
         </div>
-        <div className="flex gap-1 p-4">
-          <span className="pt-1">
-            <CgChevronRight />
+        <span>
+          <Link to={'/files/resume.pdf'} target="_blank" className="inline-block my-4">
+            <button className="flex gap-2 items-center px-4 py-3 text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full group hover:from-cyan-400 hover:to-blue-400 text-catppuccinBase">
+              <div className="group-hover:" ><CgFile size={20} /></div>
+              See My Resume
+            </button>
+          </Link>
+        </span>
+      </motion.div>
+
+    </div>
+
+  )
+}
+
+
+const Selection = () => {
+
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const selections = [
+    {
+      name: 'software developer',
+      link: 'software',
+      color: 'catppuccinBlue'
+    },
+    {
+      name: 'ui designer',
+      link: 'ui',
+      color: 'catppuccinYellow'
+    },
+    {
+      name: 'illustrator',
+      link: 'graphic',
+      color: 'catppuccinTeal'
+    },
+  ]
+
+  return (
+    <div className="flex gap-2 leading-relaxed -translate-x-6 lg:text-md text-catppuccinSubtext1">
+      {selections && selections.map((selection, i) => (
+        <Link to={`/projects?category=${selection.link}`} className='border-white border-opacity-20'>
+          <div className="flex gap-2 pr-2 pb-3 h-full group" key={i}
+            onMouseEnter={() => setHovered(i)}
+            onMouseLeave={() => setHovered(null)}
+          >
+            {/* {
+              selected === i ?
+                (<motion.span
+                  initial={{ x: 5 }}
+                  animate={{ x: -3}}
+                  transition={{
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    repeatType: "reverse",
+                    duration: 0.5
+                  }}
+                  className="mt-1 scale-125">
+                  <CgChevronRight />
+                </motion.span>) :
+                (<div className="opacity-50">|</div>)
+            } */}
+
+
+           
+              
+              <motion.span
+            initial={{ x: 5 }}
+            animate={{ x: -3 }}
+            transition={{
+              repeat: Infinity,
+              ease: "easeInOut",
+              repeatType: "reverse",
+              duration: 0.5
+            }}
+                  className={`mt-1 ${(!hovered && i === 0) ? `opacity-100` : `opacity-0`} group-hover:opacity-100`}>
+            <CgChevronRight className="scale-125"/>
+          </motion.span>
+
+          
+
+
+          <span className={`text-${selection.color}`}>
+            {selection.name}
           </span>
-          <div className="grid gap-2">
-            <div>
-              I'm quite passionate about learning anything I find interesting.
-            </div>
-            <div>
-              Recently, I've been new to the world of{" "}
-              <span className="text-catppuccinRed">open-source</span> and would
-              like to contribute to more repositories soon.
-              <span className="w-12 text-transparent bg-red-500 animate-blink">
-                0
-              </span>
-            </div>
-          </div>
         </div>
-      </div>
-    </Window>
-  );
-};
+        </Link>
+  ))
+}
+    </div >
+  )
+}
+
+
 
 const PersonalInfoWindow = () => {
   return (
-    <Window header="Personal Information">
-      <div
+    <Window header="Personal Information" delay={0.3}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
         className="items-center p-1 leading-[1.6em]"
         style={{ fontFamily: "Fira Code" }}
       >
@@ -134,16 +205,58 @@ const PersonalInfoWindow = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="pb-12"></div>
+      <div className="pb-12">
+
+      </div>
 
       <div className="grid p-1 max-h-64 md:grid-cols-12">
         <div className="col-span-4 max-w-full"></div>
+
       </div>
     </Window>
   );
 };
+
+
+
+const AboutMeWindow = () => {
+
+  const delays = [1, 5];
+
+  return (
+    <Window header="about_me.txt" delay={delays[0]}>
+      <div
+        className="items-center p-1 leading-[1.6em] relative"
+        style={{ fontFamily: "Fira Code" }}
+      >
+        <div
+          className="">
+          <div className="px-2 mb-2 align-middle text-catppuccinBase bg-catppuccinSubtext0">
+            GNU Nano
+          </div>
+        </div>
+        <div className="flex gap-1 p-4">
+          <span className="pt-1">
+            <CgChevronRight />
+          </span>
+          <div className="grid gap-2">
+            <div className="leading-relaxed">
+              <TextAnim baseText={"I'm quite passionate about learning anything I find interesting."} delay={delays[0]} blinkDelay={0} removeCursor removeCursorDelay={0} />
+              <div className="inline-block h-5 w-[10px] translate-y-1 bg-transparent" />
+            </div>
+            <div className="leading-relaxed">
+              <TextAnim baseText={"Recently, I've been exploring the world of open source software and is looking repositories to contribute to."} delay={delays[0] + delays[1]} blinkDelay={delays[1]} removeCursor removeCursorDelay={3} />
+              <div className="inline-block h-5 w-[10px] translate-y-1 bg-transparent" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Window>
+  );
+};
+
 
 // const Grid = () => {
 //   return (

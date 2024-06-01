@@ -45,12 +45,12 @@ const Navbar: React.FC = () => {
               <p>{<FaBars />}</p>
             </button>
             <hr className="opacity-10 md:hidden" />
-            <ul className="flex flex-col items-center md:gap-6 md:flex-row max-h-[calc(100vh-5rem)] overflow-y-auto">
+            <ul className="flex flex-col items-center md:gap-6 md:flex-row max-h-[calc(100vh-5rem)] overflow-y-auto relative">
               {navItems.map((item, i) => (
                 <Link
                   to={item.link}
                   key={i}
-                  className="grid place-items-center py-3 w-full rounded md:w-auto md:py-0 text-catppuccinSubtext1 hover:bg-slate-800"
+                  className="grid relative place-items-center px-1 py-6 w-full rounded nav-item md:w-auto md:py-0 text-catppuccinSubtext1 hover:bg-slate-800"
                 >
                   <li className="font-medium">{item.name}</li>
                 </Link>
