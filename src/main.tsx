@@ -4,7 +4,7 @@ import "./index.css";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Projects from "./pages/Projects";
 import Bio from "./pages/Bio";
 import NotFound from "./pages/NotFound";
@@ -16,7 +16,7 @@ const Layout = () => {
       <div className="px-[5%] min-h-[90vh]">
         <Outlet />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         element: <Projects />,
       },
       {
-        path: "/bio",
+        path: "/about",
         element: <Bio />,
       },
       {
