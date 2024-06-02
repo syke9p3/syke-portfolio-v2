@@ -148,7 +148,7 @@ const Selection = () => {
           
 
 
-          <span className={`text-${selection.color}`}>
+          <span className={`text-${selection.color} `}>
             {selection.name}
           </span>
         </div>
