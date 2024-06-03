@@ -24,7 +24,7 @@ const Home = () => {
 const Hero = () => {
   return (
     <>
-      <section id="hero" className="grid py-12 lg:grid-cols-2">
+      <section id="hero" className="grid py-12 mx-4 lg:grid-cols-2">
         <BannerText />
         {/* <div className="flex flex-col gap-6 items-start md:space-y-12 md:flex-row"> */}
         <div className="flex relative flex-col justify-center items-center w-full min-h-72">
@@ -175,34 +175,65 @@ const PersonalInfoWindow = () => {
           </span>
         </span>
         biofetch
-        <div className="flex gap-6 pl-6 mt-6">
-          <div className="grid place-items-center">
+        <div className="flex gap-3 pl-6 mt-6">
+          <img
+            src="https://avatars.githubusercontent.com/u/75114627?v=4"
+            alt=""
+            className="object-cover w-24 h-24 rounded-md border-white"
+          />
+          <div className="overflow-hidden relative rounded-md aspect-square">
             <img
               src="https://avatars.githubusercontent.com/u/75114627?v=4"
               alt=""
-              className="object-cover h-36 rounded-full"
+              className="object-cover absolute w-full h-full rounded-md border-white"
             />
           </div>
-          <div>
-            <p className="text-catppuccinGreen">@syke9p3</p>
-            <p>------------- </p>
-            <p>
-              <b className="text-catppuccinGreen">Name</b>: Kenth Saya-ang{" "}
-            </p>
-            <p>
-              <b className="text-catppuccinGreen">Age</b>: 22{" "}
-            </p>
-            <p>
-              <b className="text-catppuccinGreen">Location</b>: Taguig City{" "}
-            </p>
-            <p>
-              <b className="text-catppuccinGreen"> Gender</b>: Male{" "}
-            </p>
+          <div className="grid">
+            <div>
+              <p className="text-catppuccinGreen">@syke9p3</p>
+              <p>------------- </p>
+            </div>
+            <div className="flex overflow-x-scroll gap-2 pb-4">
+              <div>
+                <div className="flex w-[800px] gap-8 overflow-x-scroll">
+                  <div>
+                    <p>
+                      <b className="text-catppuccinGreen">Name</b>: Kenth Saya-ang{" "}
+                    </p>
+                    <p>
+                      <b className="text-catppuccinGreen">Age</b>: 22{" "}
+                    </p>
+                    <p>
+                      <b className="text-catppuccinGreen">Location</b>: Taguig City{" "}
+                    </p>
+                    <p>
+                      <b className="text-catppuccinGreen"> Gender</b>: Male{" "}
+                    </p>
+                  </div>
+                  {/* <div>
+                    <p>
+                      <b className="text-catppuccinGreen">Name</b>: Kenth Saya-ang{" "}
+                    </p>
+                    <p>
+                      <b className="text-catppuccinGreen">Age</b>: 22{" "}
+                    </p>
+                    <p>
+                      <b className="text-catppuccinGreen">Location</b>: Taguig City{" "}
+                    </p>
+                    <p>
+                      <b className="text-catppuccinGreen"> Gender</b>: Male{" "}
+                    </p>
+                  </div> */}
+                </div>
+              </div>
+          </div>
+
+
           </div>
         </div>
       </motion.div>
 
-      <div className="pb-12">
+      <div className="pb-4 lg:pb-12">
 
       </div>
 
