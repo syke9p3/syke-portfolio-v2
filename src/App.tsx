@@ -5,8 +5,7 @@ import Navbar from "./components/Navbar";
 import Projects from "./pages/Projects";
 import Bio from "./pages/Bio";
 import NotFound from "./pages/NotFound";
-import ProjectDetail from "./pages/Blog";
-import Blog from "./pages/Blog";
+// import Blog from "./pages/Blog";
 
 const Layout = () => {
     return (
@@ -33,10 +32,10 @@ const router = createBrowserRouter([
                 path: "/projects",
                 element: <Projects />,
             },
-            {
-                path: "/blogs",
-                element: <Blog />,
-            },
+            // {
+            //     path: "/blogs",
+            //     element: <Blog />,
+            // },
             {
                 path: "/about",
                 element: <Bio />,
