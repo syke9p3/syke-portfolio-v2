@@ -19,8 +19,9 @@
 
 9. Blog page layout
 
-in bio:
-- add tech stack with rofi theme
+10. Project slider
+
+11. Tech stack with rofi theme
 
 
 # Planned Features
