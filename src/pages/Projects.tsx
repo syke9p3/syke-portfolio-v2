@@ -71,8 +71,6 @@ const Projects = () => {
   );
 };
 
-import React from 'react'
-
 const Browser = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -96,7 +94,7 @@ const Browser = () => {
     <Window header="Syke9p3 - Projects">
       {/* Filter */}
       {/* <div className="grid grid-cols-2 px-1 pt-3 rounded-xl md:grid-cols-4 bg-[#21133d]"> */}
-      <div className="grid sm:grid-cols-2 md:flex px-1 bg-[#21133d] gap-1 p-1">
+      <div className="grid sm:grid-cols-2 md:flex bg-[#21133d] gap-1 ">
         {categories && Object.keys(categories).map((item, i) => (
           <button
             onClick={() => { handleChangeCategory(item) }}
@@ -120,7 +118,7 @@ const Browser = () => {
       </div>
 
       {/* Search */}
-      <div className="py-2 bg-[#281d4e] px-6 gap-6 flex items-center">
+      <div className="py-2 bg-[#281d4e] px-2 md:px-6 gap-6 flex items-center">
         <div className="hidden gap-5 opacity-50 md:flex">
           <div className="px-1">
             <FaArrowLeft />
@@ -140,18 +138,18 @@ const Browser = () => {
             placeholder="Search"
           />
         </div>
-        <div className="flex gap-5 opacity-50">
+        <div className="hidden gap-5 opacity-50 md:flex">
           <div className="px-1 scale-125">
             <FaBars />
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col gap-5 items-center px-3 pt-12 mx-8">
+      <div className="flex flex-col gap-5 items-center px-3">
         {/* <h1 className="text-7xl font-bold text-catppuccinRed">Projects</h1> */}
 
 
-        <ul ref={scope}  className="grid gap-4 max-w-4xl rounded-xl md:grid-cols-2 bg-catppuccinMantle">
+        <ul ref={scope}  className="grid gap-4 px-4 my-12 max-w-4xl rounded-xl md:grid-cols-2 bg-catppuccinMantle">
           {projects.map((project, i) => (
             <div key={i}>
               {project && <ProjectCard project={project} />}

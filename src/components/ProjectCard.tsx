@@ -12,7 +12,7 @@ interface Project {
 }
 
 const ProjectCard = ({ project }: { project: Project }) => {
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -50 }}
@@ -39,9 +39,28 @@ const ProjectCard = ({ project }: { project: Project }) => {
               {project.description}
             </p>
             <div className="my-8">
-              <span className={`px-2 py-1 text-sm font-semibold bg-blue-500 rounded-full`}>
-                Software
-              </span>
+              {
+                project.type == 'software' ? (
+                  <span className="px-2 py-1 text-sm font-semibold bg-blue-500 rounded-full">
+                    Software
+                  </span>
+
+                ) :
+                  project.type == 'ui' ? (
+                    <span className="px-2 py-1 text-sm font-semibold bg-orange-400 rounded-full">
+                      UI/UX Design
+                    </span>
+
+                  ) :
+                    project.type == 'graphics' ? (
+                      <span className="px-2 py-1 text-sm font-semibold bg-teal-400 rounded-full">
+                      Illustration
+                    </span>
+                    ) :
+                      project.type == 'graphics' ? ('Illustration') :
+                        'Not any'
+
+              }
             </div>
           </div>
         </div>

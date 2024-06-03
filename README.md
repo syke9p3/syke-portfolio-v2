@@ -15,6 +15,10 @@
 
 7. Grid like background in banner
 
+8. Change font to monospace, sans-serif
+
+9. Blog page layout
+
 in bio:
 - add tech stack with rofi theme
 
