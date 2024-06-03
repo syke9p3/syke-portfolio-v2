@@ -13,7 +13,7 @@ const Home = () => {
         <title>Kenth Saya-ang Portfolio</title>
       </Helmet>
 
-      <main className="min-h-[400px] container mx-auto 80)] bg-cover bg-center bg-no-repeat">
+      <main className="min-h-[400px] container mx-auto bg-cover bg-center bg-no-repeat">
         <Hero />
         {/* <Grid /> */}
       </main>
@@ -59,10 +59,10 @@ const BannerText = () => {
         <p className="text-5xl font-bold lg:text-6xl">
           Hello I'm <span className="text-catppuccinRed">Kenth</span>!
         </p>
-          {/* <hr className="mb-2 opacity-20" /> */}
+        {/* <hr className="mb-2 opacity-20" /> */}
         <Selection />
         <div className="flex flex-col mt-4 max-w-md leading-relaxed text-catppuccinSubtext1">
-          Better description of what I do (im a web developer with React,
+          Computer Science Student (im a web developer with React,
           Tailwind CSS) I'm quite passionate about learning anything I find
           interesting.
         </div>
@@ -70,7 +70,7 @@ const BannerText = () => {
           <Link to={'/files/resume.pdf'} target="_blank" className="inline-block my-4">
             <button className="flex gap-2 items-center px-4 py-3 text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full group hover:from-cyan-400 hover:to-blue-400 text-catppuccinBase">
               <div className="group-hover:" ><CgFile size={20} /></div>
-              See My Resume
+              My Resume
             </button>
           </Link>
         </span>
@@ -112,49 +112,44 @@ const Selection = () => {
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
           >
-            {/* {
-              selected === i ?
-                (<motion.span
-                  initial={{ x: 5 }}
-                  animate={{ x: -3}}
-                  transition={{
-                    repeat: Infinity, 
-                    ease: "easeInOut",
-                    repeatType: "reverse",
-                    duration: 0.5
-                  }}
-                  className="mt-1 scale-125">
-                  <CgChevronRight />
-                </motion.span>) :
-                (<div className="opacity-50">|</div>)
-            } */}
 
+            <motion.span
+              initial={{ x: 5 }}
+              animate={{ x: -3 }}
+              transition={{
+                repeat: Infinity,
+                ease: "easeInOut",
+                repeatType: "reverse",
+                duration: 0.5
+              }}
+              className={`mt-1 ${(!hovered && i === 0) ? `opacity-100` : `opacity-0`} group-hover:opacity-100`}>
+              <CgChevronRight className="scale-125" />
+            </motion.span>
 
-           
-              
-              <motion.span
-            initial={{ x: 5 }}
-            animate={{ x: -3 }}
-            transition={{
-              repeat: Infinity,
-              ease: "easeInOut",
-              repeatType: "reverse",
-              duration: 0.5
-            }}
-                  className={`mt-1 ${(!hovered && i === 0) ? `opacity-100` : `opacity-0`} group-hover:opacity-100`}>
-            <CgChevronRight className="scale-125"/>
-          </motion.span>
+            {
+              selection.link == 'software' ? (
+                <span className="text-catppuccinBlue">
+                  {selection.name}
+                </span>
 
-          
+              ) :
+                selection.link == 'ui' ? (
+                  <span className="text-catppuccinYellow">
+                    {selection.name}
+                  </span>
 
+                ) :
+                  selection.link == 'graphic' ? (
+                    <span className="text-catppuccinTeal">
+                      {selection.name}
+                    </span>
+                  ) : ('')
+            }
 
-          <span className={`text-${selection.color} `}>
-            {selection.name}
-          </span>
-        </div>
+          </div>
         </Link>
-  ))
-}
+      ))
+      }
     </div >
   )
 }
@@ -185,7 +180,7 @@ const PersonalInfoWindow = () => {
             <img
               src="https://avatars.githubusercontent.com/u/75114627?v=4"
               alt=""
-              className="object-cover h-36 rounded"
+              className="object-cover h-36 rounded-full"
             />
           </div>
           <div>

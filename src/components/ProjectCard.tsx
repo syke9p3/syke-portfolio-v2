@@ -48,7 +48,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 ) :
                   project.type == 'ui' ? (
                     <span className="px-2 py-1 text-sm font-semibold bg-orange-400 rounded-full">
-                      UI/UX Design
+                      UI Design
                     </span>
 
                   ) :
@@ -56,10 +56,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                       <span className="px-2 py-1 text-sm font-semibold bg-teal-400 rounded-full">
                       Illustration
                     </span>
-                    ) :
-                      project.type == 'graphics' ? ('Illustration') :
-                        'Not any'
-
+                    ) : 'Not any'
               }
             </div>
           </div>
