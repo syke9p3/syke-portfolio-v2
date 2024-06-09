@@ -6,7 +6,7 @@
 
 * {
     /* @apply font-poppins text-catppuccinText;; */
-    @apply font-poppins text-catppuccinText;;
+    @apply font-poppins;;
     /* font-family: 'Poppins', sans-serif; */
 }
 
@@ -19,7 +19,7 @@ body {
     @apply bg-catppuccinBase
 }
 
-p {
+p, span {
     @apply text-catppuccinText;
 }
 
@@ -36,3 +36,16 @@ h1 {
 .section {
     @apply container mx-auto py-12 min-h-24
 }
+
+
+/* .nav-item::after {
+    content: "";
+    background-color: rgb(224, 51, 51);
+    position: absolute;
+    width: 100%;
+    border: 10px solid #f38ba8;
+    height: 3px;
+    left: 0;
+    bottom: -1.1rem;
+    transition: all 300ms ease;
+} */
