@@ -1,5 +1,5 @@
-import { motion, stagger, useAnimate, useInView } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useAnimate, useInView } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import ProjectCard from "../components/ProjectCard.tsx";
@@ -20,6 +20,16 @@ import { SiAdobephotoshop, SiVisualstudiocode } from "react-icons/si";
 interface Category {
   name: string;
   icon: React.ReactNode;
+}
+
+interface Project {
+  id: number;
+  name: string;
+  date: string;
+  imgSrc: string;
+  link: string;
+  description: string;
+  type: string;
 }
 
 const categories: Record<string, Category> = {
@@ -45,8 +55,6 @@ type CategoryKey = keyof typeof categories;
 
 const Projects = () => {
 
-
-
   return (
     <>
       <Helmet>
@@ -54,9 +62,9 @@ const Projects = () => {
       </Helmet>
       <main className="flex flex-col min-h-[90vh] py-8 container mx-auto">
         <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }} className="flex flex-col gap-6 mt-12 mb-16">
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }} className="flex flex-col gap-6 mt-12 mb-16">
           <h1 className="text-5xl font-bold text-blue-500 uppercase md:text-5xl xl:text-6xl">
             Projects
           </h1>
@@ -65,29 +73,55 @@ const Projects = () => {
             computer science student.
           </p>
         </motion.div>
-          <Browser />
+        <Browser />
       </main>
     </>
   );
 };
 
+const filterData = (projects: Project[], searchTerm: string, category: CategoryKey) => {
+  const search = searchTerm.toLowerCase();
+  return projects.filter((project) => {
+    const name = project.name.toLowerCase();
+    const description = project.description.toLowerCase();
+    const type = project.type.toLowerCase();
+
+    return (
+      (name.includes(search) || description.includes(search)) &&
+      (category === 'all' || type === category)
+    );
+  });
+}
+
+
 const Browser = () => {
+
+  const [scope, animate] = useAnimate()
+  const isInView = useInView(scope)
 
   const [searchParams, setSearchParams] = useSearchParams();
   const [category, setCategory] = useState<CategoryKey>(searchParams.get('category') as CategoryKey || 'all');
+
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleChangeCategory = (item: string) => {
     setCategory(item)
     setSearchParams({ category: item });
   }
 
-  const [scope, animate] = useAnimate()
-  const isInView = useInView(scope)
-  
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setSearchTerm(value);
+  };
+
+  const filteredData = useMemo(() => filterData(projects, searchTerm, category), [searchTerm, category]);
+
+
+
   useEffect(() => {
-     if (isInView) {
-       animate(scope.current, { opacity: 1, y: 50 }, { delay: stagger(9.5) })
-     }
+    if (isInView) {
+      animate(scope.current, { opacity: 1, y: 50 })
+    }
   }, [isInView])
 
   return (
@@ -136,6 +170,8 @@ const Browser = () => {
             type="text"
             className="p-2 w-full outline-none bg-[#2d245b]"
             placeholder="Search"
+            value={searchTerm}
+            onChange={handleSearchChange}
           />
         </div>
         <div className="hidden gap-5 opacity-50 md:flex">
@@ -146,15 +182,20 @@ const Browser = () => {
       </div>
 
       <div className="flex flex-col gap-5 items-center px-3">
-        {/* <h1 className="text-7xl font-bold text-catppuccinRed">Projects</h1> */}
 
+        {`Search term: ${searchTerm}`}
+        <br />
+        {`Category term: ${category}`}
 
-        <ul ref={scope}  className="grid gap-4 px-4 my-12 max-w-4xl rounded-xl md:grid-cols-2 bg-catppuccinMantle">
-          {projects.map((project, i) => (
-            <div key={i}>
-              {project && <ProjectCard project={project} />}
-            </div>
-          ))}
+        {filteredData.length === 0 && <p className="text-white">No projects found</p>}
+
+        <ul ref={scope} className="grid gap-4 px-4 my-12 max-w-4xl rounded-xl md:grid-cols-2 bg-catppuccinMantle min-h-[900px]">
+          {
+            filteredData.map((project, i) => (
+              <div key={i}>
+                {project && <ProjectCard project={project} />}
+              </div>
+            ))}
         </ul>
       </div>
 
