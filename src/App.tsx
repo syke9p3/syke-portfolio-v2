@@ -3,18 +3,19 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 // import Footer from "./components/Footer";
 import Projects from "./pages/Projects";
-import Bio from "./pages/Bio";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 // import Blog from "./pages/Blog";
 
 const Layout = () => {
     return (
         <>
-            <Navbar />
-            <div className="min-h-[90vh]">
+            <div className="z-50">
+                <Navbar />
+            </div>
+            <div className="min-h-[90vh] z-10">
                 <Outlet />
             </div>
-            {/* <Footer /> */}
         </>
     );
 };
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
             // },
             {
                 path: "/about",
-                element: <Bio />,
+                element: <About />,
             },
             {
                 path: "/*",
