@@ -1,10 +1,6 @@
 import { motion } from "framer-motion";
-
-import { ReactElement } from "react";
 import { Helmet } from "react-helmet";
 import { stack } from "../data/stack";
-import Window from "../components/Window";
-
 
 const About = () => {
   return (
