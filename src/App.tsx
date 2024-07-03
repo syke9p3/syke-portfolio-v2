@@ -10,11 +10,12 @@ import NotFound from "./pages/NotFound";
 const Layout = () => {
     return (
         <>
-            <Navbar />
-            <div className="min-h-[90vh]">
+            <div className="z-50">
+                <Navbar />
+            </div>
+            <div className="min-h-[90vh] z-10">
                 <Outlet />
             </div>
-            {/* <Footer /> */}
         </>
     );
 };
