@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 
 import { ReactElement } from "react";
 import { Helmet } from "react-helmet";
-import { GrReactjs } from "react-icons/gr";
-import { SiHtml5 } from "react-icons/si";
+import { stack } from "../data/stack";
+import Window from "../components/Window";
+
 
 const About = () => {
   return (
@@ -12,55 +13,41 @@ const About = () => {
         <title>About | Kenth Saya-ang Portfolio</title>
       </Helmet>
       <main className="flex flex-col min-h-[90vh] py-8 container mx-auto">
-        <div className="gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }} className="flex flex-col gap-6 mt-12 mb-16">
-            <h1 className="text-5xl font-bold text-blue-500 uppercase md:text-5xl xl:text-6xl">
-              ABOUT ME
-            </h1>
-            <p className="max-w-md leading-relaxed text-catppuccinSubtext1">
-              This section is about me: my tech stack, list of education, etc
-            </p>
-          </motion.div>
-          <TechPill icon={<SiHtml5 />} text="HTML" bgColor="#e34f26" />
-          <section>
-            <h2>Tech Stack</h2>
-            <p>Web Dev List of web tech here</p>
-            <p>Education</p>
-            <p>Two ways I can approach this:</p>
-            <p>1. Icon squares</p>
-            <p>2. Icon Badges</p>
-          </section>
-          <section className="grid grid-cols-3 gap-2">
-            <div className="rounded-xl text-gray-500 bg-black aspect-square size-16 grid place-items-center">
-              <GrReactjs size={24} />
-              {/* <p className="text-xs">React</p> */}
-            </div>
-            <div className="rounded-xl text-gray-500 bg-black aspect-square size-16 grid place-items-center">
-              <GrReactjs size={24} />
-              {/* <p className="text-xs">React</p> */}
-            </div>
-            <div className="rounded-xl text-gray-500 bg-black aspect-square size-16 grid place-items-center">
-              <GrReactjs size={24} />
-              {/* <p className="text-xs">React</p> */}
-            </div>
+        <div className="gap-6 mx-6">
+          <div className="md:flex md:pl-12">
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }} className="flex flex-col gap-6 mt-0 mb-8 pt-8 justify-center items-center md:justify-start md:items-start text-center md:text-left">
+              <h2 className="text-2xl font-bold text-catppuccinSapphire uppercase md:text-4xl xl:text-5xl">
+                Skills
+              </h2>
+              <p className="leading-relaxed text-catppuccinSubtext0 text-sm max-w-md md:max-w-max">
+                Languages, technologies, tools, and platforms I have experienced and applied in my past projects.
+              </p>
+            </motion.div>
+            <section className="flex flex-wrap gap-2 mt-0 px-6 pb-12 items-center justify-center md:justify-start">
 
-          </section>
+              {stack.map((tech, i) => (
+                <button key={i} className="group/stack rounded-xl text-gray-500 bg-[##181825] aspect-square min-w-24 gap-2 grid place-items-center">
+                  <div className="text-center flex justify-center items-center flex-col gap-2">
+                    <div className={`animate group-hover:text-[${tech.color}] group-hover/stack:text-blue-500`}>{tech.icon}</div> {/*  style={{ color: tech.color }} */}
+                    <p className="text-xs text-gray-500">{tech.name}</p>
+                  </div>
+                </button>
+              ))}
+            </section>
+          </div>
+          <div className="mt-12"></div>
+
         </div>
-      </main>
+      </main >
     </>
   );
 };
 
-const TechPill = ({ icon, text, bgColor }: { icon: ReactElement, text: string, bgColor: string }) => {
-  return (
-    <button className={`flex gap-2 items-center px-2 py-1 font-semibold tracking-wider bg-[${bgColor}] text-ca`}>
-      <p>{icon}</p>
-      <p>{text}</p>
-    </button>
-  )
-}
+
+
+
 
 export default About;
