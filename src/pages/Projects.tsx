@@ -60,12 +60,12 @@ const Projects = () => {
       <Helmet>
         <title>Projects | Kenth Saya-ang Portfolio</title>
       </Helmet>
-      <main className="flex flex-col min-h-[90vh] py-8 container mx-auto">
+      <main className="flex flex-col min-h-[90vh] py-8 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }} className="flex flex-col gap-6 mt-12 mb-16">
-          <h1 className="text-5xl font-bold text-blue-500 uppercase md:text-5xl xl:text-6xl">
+          <h1 className="text-5xl font-bold text-indigo-500 uppercase md:text-5xl xl:text-6xl">
             Projects
           </h1>
           <p className="max-w-md leading-relaxed text-catppuccinSubtext1">
@@ -148,19 +148,20 @@ const Browser = () => {
           </button>
         ))}
       </div>
-
       {/* Search */}
       <div className="py-2 bg-[#281d4e] px-2 md:px-6 gap-6 flex items-center">
-        <div className="hidden gap-5 opacity-50 md:flex">
-          <div className="px-1">
+        <div className="hidden gap-5 md:flex">
+          <div className="px-1 opacity-50 ">
             <FaArrowLeft />
           </div>
-          <div className="px-1">
+          <div className="px-1 opacity-50 ">
             <FaArrowRight />
           </div>
-          <div className="px-1">
+          <button className={`px-1 ${!searchTerm ? `opacity-50` : `opacity-100`}`}
+            onClick={() => setSearchTerm('')}
+          >
             <FaArrowRotateRight />
-          </div>
+          </button>
         </div>
         <div className="flex overflow-hidden items-center px-4 rounded-md bg-[#2d245b] w-full ">
           <BsSearch size={16} />
@@ -180,10 +181,6 @@ const Browser = () => {
       </div>
 
       <div className="flex flex-col gap-5 items-center px-3">
-
-        {`Search term: ${searchTerm}`}
-        <br />
-        {`Category term: ${category}`}
 
         {filteredData.length === 0 && <p className="text-white">No projects found</p>}
 

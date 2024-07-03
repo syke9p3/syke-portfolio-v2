@@ -31,12 +31,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </Link>
         <div>
           <div className="flex flex-col col-span-1">
-            {`type: ${project.type}`}
-            <p className="mt-auto text-xs text-catppuccinSubtext0">
-              {project.date}
-            </p>
-            <h1 className="mt-4 mb-6 text-2xl font-semibold">{project.name}</h1>
-            <p className="text-sm leading-relaxed text-catppuccinSubtext1">
+            <h1 className="mt-0 mb-6 text-2xl font-semibold leading-tight">{project.name}</h1>
+            <p className="text-sm text-catppuccinSubtext1">
               {project.description}
             </p>
 

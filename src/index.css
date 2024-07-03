@@ -6,7 +6,8 @@
 
 * {
     /* @apply font-poppins text-catppuccinText;; */
-    @apply font-poppins;;
+    @apply font-poppins;
+    ;
     /* font-family: 'Poppins', sans-serif; */
 }
 
@@ -23,8 +24,13 @@ p, span {
     @apply text-catppuccinText;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tighter text-catppuccinText;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply text-catppuccinText;
 }
 
 h1 {
@@ -49,3 +55,7 @@ h1 {
     bottom: -1.1rem;
     transition: all 300ms ease;
 } */
+
+.animate {
+    @apply transition duration-150 ease-in
+}
