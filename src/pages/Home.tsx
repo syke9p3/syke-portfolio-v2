@@ -24,7 +24,7 @@ const Home = () => {
 const Hero = () => {
   return (
     <>
-      <section id="hero" className="grid py-12 mx-4 lg:grid-cols-2">
+      <section id="hero" className="grid py-12 mx-4 lg:grid-cols-2 px-6">
         <BannerText />
         {/* <div className="flex flex-col gap-6 items-start md:space-y-12 md:flex-row"> */}
         <div className="flex relative flex-col justify-center items-center w-full min-h-72">
@@ -226,7 +226,7 @@ const PersonalInfoWindow = () => {
                   </div> */}
                 </div>
               </div>
-          </div>
+            </div>
 
 
           </div>
