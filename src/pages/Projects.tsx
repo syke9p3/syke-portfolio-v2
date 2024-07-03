@@ -116,8 +116,6 @@ const Browser = () => {
 
   const filteredData = useMemo(() => filterData(projects, searchTerm, category), [searchTerm, category]);
 
-
-
   useEffect(() => {
     if (isInView) {
       animate(scope.current, { opacity: 1, y: 50 })
