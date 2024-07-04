@@ -19,7 +19,7 @@ const About = () => {
                 Skills
               </h2>
               <p className="leading-relaxed text-catppuccinSubtext0 text-sm max-w-md md:max-w-max">
-                Languages, technologies, tools, and platforms I have experienced and applied in my past projects.
+                Languages, technologies, tools, and platforms both experienced and applied in past projects.
               </p>
             </motion.div>
             <section className="flex flex-wrap gap-2 mt-0 px-6 pb-12 items-center justify-center md:justify-start">
@@ -69,7 +69,7 @@ const Timeline = () => {
               Educational History
             </h2>
             <p className="leading-relaxed text-catppuccinSubtext0 text-sm max-w-md md:max-w-max">
-              The list of school/university I've entered from junior high, senior high, and college as well as the course/strand I've taken.
+              Schools/university entered in junior high, senior high, and college including the course/strand taken.
             </p>
           </motion.div>
           <div className="w-full max-w-3xl mx-auto">

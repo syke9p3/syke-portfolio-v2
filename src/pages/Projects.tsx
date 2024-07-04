@@ -69,8 +69,7 @@ const Projects = () => {
             Projects
           </h1>
           <p className="max-w-md leading-relaxed text-catppuccinSubtext1">
-            These are some of the best projects I have worked on as a
-            computer science student.
+            Some of the best projects I have worked on personally and academically.
           </p>
         </motion.div>
         <Browser />
