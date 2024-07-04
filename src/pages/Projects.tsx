@@ -38,10 +38,10 @@ const categories: Record<string, Category> = {
     name: "ui designs",
     icon: <FiFigma />,
   },
-  graphic: {
-    name: "illustrations",
-    icon: <SiAdobephotoshop />,
-  },
+  // graphic: {
+  //   name: "illustrations",
+  //   icon: <SiAdobephotoshop />,
+  // },
 }
 
 type CategoryKey = keyof typeof categories;
@@ -188,7 +188,6 @@ const Browser = () => {
                 {project && <ProjectCard project={project} />}
               </li>
             ))}
-
 
 
         </ul >

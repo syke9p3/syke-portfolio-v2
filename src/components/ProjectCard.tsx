@@ -30,10 +30,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
             }
           </ul>
           <div className="flex flex-col col-span-1">
+            <p className="mb-4 text-sm text-catppuccinSapphire">
+              {project.stack}
+            </p>
             <h1 className="mt-0 mb-6 text-2xl font-semibold leading-tight">{project.name}</h1>
             <p className="text-sm text-catppuccinSubtext1">
               {project.description}
             </p>
+
 
             {/* TODO: Customizable Badge Component */}
             <div className="my-8">
