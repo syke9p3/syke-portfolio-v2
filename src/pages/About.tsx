@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About | Kenth Saya-ang Portfolio</title>
+        <title>About | Kenth Saya-ang</title>
       </Helmet>
       <main className="flex flex-col min-h-[90vh] py-8 container mx-auto " id="about">
         <div className="mx-6 md:mx-12">

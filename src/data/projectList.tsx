@@ -1,5 +1,5 @@
-import { FaGithub } from "react-icons/fa6";
 import { FiFigma } from "react-icons/fi";
+import { FiGithub } from "react-icons/fi";
 import { HiOutlineExternalLink } from "react-icons/hi";
 
 // export enum ProjectType {
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     date: "June 2023",
     imgSrc: "/img/projects/mlthsc.jpg",
     link: "https://thesis-passers.github.io/MLTHSC/",
-    description: "A fine-tuned BERT Tagalog model social media hate speech that categorizes based on labels such as Age, Gender, Physical, Race, Religion, and Other discriminatory factors.",
+    description: "Fine-tuned BERT Tagalog model social media hate speech classifier that categorizes based on labels such as Age, Gender, Physical, Race, Religion, and Other discriminatory factors.",
     stack: "[HTML, CSS, JS, Python, Jupyter, Flask]",
     type: "software",
     links: [
@@ -43,7 +43,7 @@ export const projects: Project[] = [
       },
       {
         url: 'https://github.com/syke9p3/mlthsc-thesis',
-        icon: <FaGithub size={24} />,
+        icon: <FiGithub size={24} />,
         title: 'Github'
       },
     ]
@@ -91,7 +91,7 @@ export const projects: Project[] = [
       },
       {
         url: 'https://github.com/syke9p3/bert-tagalog-pos-tagger',
-        icon: <FaGithub size={24} />,
+        icon: <FiGithub size={24} />,
         title: 'Github'
       },
     ]
@@ -130,7 +130,7 @@ export const projects: Project[] = [
     links: [
       {
         url: 'https://github.com/syke9p3/OGGLP-Database',
-        icon: <FaGithub size={24} />,
+        icon: <FiGithub size={24} />,
         title: 'Figma'
       },
     ]

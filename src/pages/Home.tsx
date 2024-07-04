@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Kenth Saya-ang Portfolio</title>
+        <title>Kenth Saya-ang</title>
       </Helmet>
       <Hero />
     </>
