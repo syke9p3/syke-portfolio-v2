@@ -1,4 +1,6 @@
 # Syke Portfolio 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/68ec0d12-45b2-4cf6-baf6-6e788e57dc8f/deploy-status)](https://app.netlify.com/sites/syke9p3/deploys)
+
 
 # Todo
 ~~1. syke logo~~
