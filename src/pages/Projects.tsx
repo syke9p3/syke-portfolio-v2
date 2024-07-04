@@ -1,10 +1,10 @@
-import { motion, useAnimate, useInView } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import ProjectCard from "../components/ProjectCard.tsx";
 import Window from "../components/Window.tsx";
-import projects from "../data/projects.ts";
+import { projects, Project } from "../data/projectList.tsx";
 import {
   FaArrowLeft,
   FaArrowRight,
@@ -16,21 +16,14 @@ import { BsSearch } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import { FiFigma } from "react-icons/fi";
 import { SiAdobephotoshop, SiVisualstudiocode } from "react-icons/si";
+import Fancybox from "../components/Fancybox.tsx";
 
 interface Category {
   name: string;
   icon: React.ReactNode;
 }
 
-interface Project {
-  id: number;
-  name: string;
-  date: string;
-  imgSrc: string;
-  link: string;
-  description: string;
-  type: string;
-}
+
 
 const categories: Record<string, Category> = {
   all: {
@@ -60,7 +53,7 @@ const Projects = () => {
       <Helmet>
         <title>Projects | Kenth Saya-ang Portfolio</title>
       </Helmet>
-      <main className="flex flex-col min-h-[90vh] py-8 container mx-auto px-6">
+      <main className="flex flex-col min-h-[90vh] py-8 container mx-auto px-6" id="projects">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -95,9 +88,6 @@ const filterData = (projects: Project[], searchTerm: string, category: CategoryK
 
 const Browser = () => {
 
-  const [scope, animate] = useAnimate()
-  const isInView = useInView(scope)
-
   const [searchParams, setSearchParams] = useSearchParams();
   const [category, setCategory] = useState<CategoryKey>(searchParams.get('category') as CategoryKey || 'all');
 
@@ -115,11 +105,6 @@ const Browser = () => {
 
   const filteredData = useMemo(() => filterData(projects, searchTerm, category), [searchTerm, category]);
 
-  useEffect(() => {
-    if (isInView) {
-      animate(scope.current, { opacity: 1, y: 50 })
-    }
-  }, [isInView])
 
   return (
     <Window header="Syke9p3 - Projects">
@@ -179,21 +164,37 @@ const Browser = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-5 items-center px-3">
 
-        {filteredData.length === 0 && <p className="text-white">No projects found</p>}
+      {/* {filteredData.length === 0 && <p className="text-white">No projects found</p>} */}
 
-        <ul ref={scope} className="grid gap-4 px-4 my-12 max-w-4xl rounded-xl md:grid-cols-2 bg-catppuccinMantle min-h-[900px]">
+
+
+      <Fancybox
+        options={{
+          Carousel: {
+            infinite: false,
+          },
+          Thumbs: {
+            type: "classic",
+          },
+        }}
+      >
+
+        <ul className="grid p-16 gap-4 rounded-xl lg:grid-cols-2 xl:grid-cols-3 bg-catppuccinMantle min-h-[900px]">
+
           {
             filteredData.map((project, i) => (
-              <div key={i}>
+              <li key={i}>
                 {project && <ProjectCard project={project} />}
-              </div>
+              </li>
             ))}
-        </ul>
-      </div>
 
-    </Window>
+
+
+        </ul >
+      </Fancybox>
+
+    </Window >
   )
 }
 
