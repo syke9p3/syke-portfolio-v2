@@ -1,27 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CgFile } from "react-icons/cg";
-
-interface NavItem {
-  name: string;
-  link: string;
-}
-
-const navItems: NavItem[] = [
-  {
-    name: "Home",
-    link: "/",
-  },
-  {
-    name: "About",
-    link: "/about",
-  },
-  {
-    name: "Portfolio",
-    link: "/portfolio",
-  },
-
-];
+import { navItems } from "../data/navItems";
 
 
 const Navbar: React.FC = () => {
