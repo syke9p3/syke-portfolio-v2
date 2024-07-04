@@ -58,9 +58,7 @@ const BannerText = () => {
         {/* <hr className="mb-2 opacity-20" /> */}
         <Selection />
         <div className="flex flex-col mt-4 max-w-md leading-relaxed text-catppuccinSubtext1">
-          Computer Science Student (im a web developer with React,
-          Tailwind CSS) I'm quite passionate about learning anything I find
-          interesting.
+          Computer Science Student focusing on web development with React + TailwindCSS and UI/UX Design with Figma. Aspiring to be full stack developer.
         </div>
         <span>
           <Link to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4">

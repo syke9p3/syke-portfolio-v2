@@ -165,10 +165,6 @@ const Browser = () => {
         </div>
       </div>
 
-
-
-
-
       <Fancybox
         options={{
           Carousel: {
@@ -187,7 +183,7 @@ const Browser = () => {
 
             <Masonry>
               {filteredData.map((project, i) => (
-                <div key={i} className="m-6">{project && <ProjectCard key={i} project={project} />}</div>
+                <div key={i} className="mx-4 my-6">{project && <ProjectCard key={i} project={project} />}</div>
               ))}
             </Masonry>
           </ResponsiveMasonry>
