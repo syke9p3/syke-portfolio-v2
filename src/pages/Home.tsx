@@ -12,11 +12,7 @@ const Home = () => {
       <Helmet>
         <title>Kenth Saya-ang Portfolio</title>
       </Helmet>
-
-      <main className="min-h-[400px] container mx-auto bg-cover bg-center bg-no-repeat">
-        <Hero />
-        {/* <Grid /> */}
-      </main>
+      <Hero />
     </>
   );
 };
@@ -24,22 +20,22 @@ const Home = () => {
 const Hero = () => {
   return (
     <>
-      <section id="hero" className="grid py-12 mx-4 lg:grid-cols-2 px-6">
-        <BannerText />
-        {/* <div className="flex flex-col gap-6 items-start md:space-y-12 md:flex-row"> */}
-        <div className="flex relative flex-col justify-center items-center w-full min-h-72">
-          <div className="relative w-full md:w-[70%]">
-            <PersonalInfoWindow />
+      <main className="min-h-[900px] container mx-auto bg-cover bg-center bg-no-repeat">
+        <section id="hero" className="grid py-12 mx-4 lg:grid-cols-2 px-6">
+          <BannerText />
+          {/* <div className="flex flex-col gap-6 items-start md:space-y-12 md:flex-row"> */}
+          <div className="flex relative flex-col justify-center items-center w-full min-h-72">
+            <div className="relative w-full md:w-[70%]">
+              <PersonalInfoWindow />
+            </div>
+            <div className="relative w-full md:w-[75%] mt-8 lg:-mt-8 lg:ml-16">
+              <AboutMeWindow />
+            </div>
           </div>
-          <div className="relative w-full md:w-[75%] mt-8 lg:-mt-8 lg:ml-16">
-            <AboutMeWindow />
-          </div>
-        </div>
+        </section>
+      </main>
 
-      </section>
-      {/* <div className="flex justify-center py-6 mt-12">
-        <p className="text-xs leading-relaxed text-[#9fa4b3c4] opacity-80">My website was inspired from <span className="text-catppuccinYellow">Catpuccin Mocha</span> theme and my <span className="text-catppuccinGreen">Linux Mint</span> setup.</p>
-      </div> */}
+
     </>
   );
 };
@@ -67,7 +63,7 @@ const BannerText = () => {
           interesting.
         </div>
         <span>
-          <Link to={'/files/resume.pdf'} target="_blank" className="inline-block my-4">
+          <Link to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4">
             <button className="flex gap-2 items-center px-4 py-3 text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full group hover:from-cyan-400 hover:to-blue-400 text-catppuccinBase">
               <div className="group-hover:" ><CgFile size={20} /></div>
               My Resume
@@ -107,7 +103,7 @@ const Selection = () => {
   return (
     <div className="flex gap-2 leading-relaxed -translate-x-6 lg:text-md text-catppuccinSubtext1">
       {selections && selections.map((selection, i) => (
-        <Link to={`/projects?category=${selection.link}`} className='border-white border-opacity-20'>
+        <a href={`/#projects?category=${selection.link}`} className='border-white border-opacity-20'>
           <div className="flex gap-2 pr-2 pb-3 h-full group" key={i}
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
@@ -147,7 +143,7 @@ const Selection = () => {
             }
 
           </div>
-        </Link>
+        </a>
       ))
       }
     </div >
@@ -210,20 +206,6 @@ const PersonalInfoWindow = () => {
                       <b className="text-catppuccinGreen"> Gender</b>: Male{" "}
                     </p>
                   </div>
-                  {/* <div>
-                    <p>
-                      <b className="text-catppuccinGreen">Name</b>: Kenth Saya-ang{" "}
-                    </p>
-                    <p>
-                      <b className="text-catppuccinGreen">Age</b>: 22{" "}
-                    </p>
-                    <p>
-                      <b className="text-catppuccinGreen">Location</b>: Taguig City{" "}
-                    </p>
-                    <p>
-                      <b className="text-catppuccinGreen"> Gender</b>: Male{" "}
-                    </p>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -244,8 +226,6 @@ const PersonalInfoWindow = () => {
     </Window>
   );
 };
-
-
 
 const AboutMeWindow = () => {
 
@@ -283,53 +263,5 @@ const AboutMeWindow = () => {
   );
 };
 
-
-// const Grid = () => {
-//   return (
-//     <section
-//       id="hero"
-//       className="grid grid-cols-8 md:grid-cols-12 gap-4 h-[70vh] bg-black "
-//     >
-//       <motion.div
-//         initial={{ opacity: 0, y: -50 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 0.5 }}
-//         className="grid col-span-12 row-span-2 place-items-center rounded-xl border border-white hover:animate-pulse bg-slate-600"
-//       >
-//         1
-//       </motion.div>
-//       <div
-//         // initial={{
-//         //   // visibility: 'hidden',
-//         //   scale: 0
-//         // }}
-//         // animate={{
-//         //   // visibility: 'visible',
-//         //   scale: 1
-//         // }}
-//         // exit={{
-//         //   rotate:'180deg',
-//         // }}
-//         // transition={{
-//         //   duration: 1,
-//         //   type: 'spring'
-//         // }}
-
-//         className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse"
-//       >
-//         1
-//       </div>
-//       <div className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse">
-//         1
-//       </div>
-//       <div className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse">
-//         1
-//       </div>
-//       <div className="grid col-span-4 place-items-center rounded-xl border border-white bg-slate-600 hover:animate-pulse">
-//         1
-//       </div>
-//     </section>
-//   );
-// };
 
 export default Home;
