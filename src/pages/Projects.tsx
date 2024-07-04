@@ -15,7 +15,7 @@ import {
 import { BsSearch } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import { FiFigma } from "react-icons/fi";
-import { SiAdobephotoshop, SiVisualstudiocode } from "react-icons/si";
+import { SiVisualstudiocode } from "react-icons/si";
 import Fancybox from "../components/Fancybox.tsx";
 
 interface Category {
@@ -62,7 +62,7 @@ const Projects = () => {
             Projects
           </h1>
           <p className="max-w-md leading-relaxed text-catppuccinSubtext1">
-            Some of the best projects I have worked on personally and academically.
+            Some of the best projects I have worked on both for personal and academic.
           </p>
         </motion.div>
         <Browser />
