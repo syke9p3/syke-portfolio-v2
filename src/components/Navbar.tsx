@@ -1,6 +1,28 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import navItems from "../data/navItems";
+import { CgFile } from "react-icons/cg";
+
+interface NavItem {
+  name: string;
+  link: string;
+}
+
+const navItems: NavItem[] = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "About",
+    link: "/about",
+  },
+  {
+    name: "Portfolio",
+    link: "/portfolio",
+  },
+
+];
+
 
 const Navbar: React.FC = () => {
   const [isOpened, setIsOpened] = useState(false);
@@ -39,7 +61,7 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
-          <ul className="gap-3 hidden md:flex">
+          <ul className="gap-6 hidden md:flex">
             {navItems.map((item, i) => (
               <Link
                 to={item.link}
@@ -49,6 +71,12 @@ const Navbar: React.FC = () => {
                 <li className="font-medium">{item.name}</li>
               </Link>
             ))}
+            <Link to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4">
+              <button className="flex gap-2 items-center px-4 py-3 text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full group hover:from-cyan-400 hover:to-blue-400 text-catppuccinBase">
+                <div className="group-hover:" ><CgFile size={20} /></div>
+                My Resume
+              </button>
+            </Link>
 
           </ul>
 
@@ -64,6 +92,12 @@ const Navbar: React.FC = () => {
                 <li className="font-medium">{item.name}</li>
               </Link>
             ))}
+            <Link to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4">
+              <button className="flex gap-2 items-center px-4 py-3 text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full group hover:from-cyan-400 hover:to-blue-400 text-catppuccinBase">
+                <div className="group-hover:" ><CgFile size={20} /></div>
+                My Resume
+              </button>
+            </Link>
 
           </ul>
         </div>

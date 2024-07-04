@@ -17,6 +17,7 @@ import { CgClose } from "react-icons/cg";
 import { FiFigma } from "react-icons/fi";
 import { SiVisualstudiocode } from "react-icons/si";
 import Fancybox from "../components/Fancybox.tsx";
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
 interface Category {
   name: string;
@@ -46,12 +47,12 @@ const categories: Record<string, Category> = {
 
 type CategoryKey = keyof typeof categories;
 
-const Projects = () => {
+const Portfolio = () => {
 
   return (
     <>
       <Helmet>
-        <title>Projects | Kenth Saya-ang Portfolio</title>
+        <title>Portfolio | Kenth Saya-ang</title>
       </Helmet>
       <main className="flex flex-col min-h-[90vh] py-8 container mx-auto px-6" id="projects">
         <motion.div
@@ -59,7 +60,7 @@ const Projects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }} className="flex flex-col gap-6 mt-12 mb-16">
           <h1 className="text-5xl font-bold text-indigo-500 uppercase md:text-5xl xl:text-6xl">
-            Projects
+            Portfolio
           </h1>
           <p className="max-w-md leading-relaxed text-catppuccinSubtext1">
             Some of the best projects I have worked on both for personal and academic.
@@ -165,7 +166,6 @@ const Browser = () => {
       </div>
 
 
-      {/* {filteredData.length === 0 && <p className="text-white">No projects found</p>} */}
 
 
 
@@ -180,21 +180,25 @@ const Browser = () => {
         }}
       >
 
-        <ul className="grid p-16 gap-4 rounded-xl lg:grid-cols-2 xl:grid-cols-3 bg-catppuccinMantle min-h-[900px]">
+        {/* <ul className="grid p-16 gap-4 rounded-xl lg:grid-cols-2 xl:grid-cols-3 bg-catppuccinMantle min-h-[900px]"> */}
 
-          {
-            filteredData.map((project, i) => (
-              <li key={i}>
-                {project && <ProjectCard project={project} />}
-              </li>
-            ))}
+        <div className="p-16">
+          <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 1024: 2, 1280: 3 }}>
+
+            <Masonry>
+              {filteredData.map((project, i) => (
+                <div key={i} className="m-6">{project && <ProjectCard key={i} project={project} />}</div>
+              ))}
+            </Masonry>
+          </ResponsiveMasonry>
+        </div>
 
 
-        </ul >
+        {/* </ul > */}
       </Fancybox>
 
     </Window >
   )
 }
 
-export default Projects;
+export default Portfolio;
