@@ -4,14 +4,16 @@ import { motion } from 'framer-motion'
 const Window = ({
   header,
   children,
-  delay
+  delay,
+  highlight
 }: {
   header?: string;
   delay?: number;
+  highlight?: boolean;
   children: React.ReactNode;
 }) => {
   return (
-    <div className="overflow-hidden rounded-xl border-2 border-gray-800 shadow-xl hover:border-catppuccinPeach">
+    <div className={`overflow-hidden rounded-xl border-2 border-gray-800 shadow-xl ${highlight === true ?? 'hover:border-catppuccinPeach'}`}>
       <div
         className="w-full resize-y text-catppuccinSubtext1 bg-catppuccinMantle min-h-32 group"
       >
