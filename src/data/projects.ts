@@ -1,6 +1,6 @@
 const projects = [
   {
-    "id": 4,
+    "id": 'mlthsc',
     "name": "MLTHSC: Multilabel Tagalog Hate Speech Classifier",
     "date": "June 2023",
     "imgSrc": "/img/projects/mlthsc.jpg",
@@ -8,18 +8,10 @@ const projects = [
     "description": "Thesis Project. Multilabel Tagalog Hate Speech Classifier using BERT. Classifies Tagalog Hate Speech with labels Age, Gender, Physical, Race, Religion, and Others. ",
     "type": "software"
   },
-  {
-    "id": 1,
-    "name": "BERT Part-of-Speech Tagger",
-    "date": "August 2023",
-    "imgSrc": "/img/projects/bertpos-hf.png",
-    "link": "https://huggingface.co/syke9p3/bert-tagalog-base-uncased-pos-tagger?text=Naisip+ko+na+kumain+na+lang+tayo+sa+pinakasikat+na+restaurant+sa+Manila+.",
-    "description": "Fine-tuned BERT Tagalog Base Uncased model for Filipino part of speech tagging. You can try the model on HuggingFace",
-    "type": "software"
-  },
+
 
   {
-    "id": 2,
+    "id": 'plantitapp',
     "name": "PlantitApp Prototype",
     "date": "February 2023",
     "imgSrc": "/img/projects/plantitapp.png",
@@ -29,7 +21,16 @@ const projects = [
   },
 
   {
-    "id": 3,
+    "id": 'berttpost',
+    "name": "BERT Part-of-Speech Tagger",
+    "date": "August 2023",
+    "imgSrc": "/img/projects/bertpos-hf.png",
+    "link": "https://huggingface.co/syke9p3/bert-tagalog-base-uncased-pos-tagger?text=Naisip+ko+na+kumain+na+lang+tayo+sa+pinakasikat+na+restaurant+sa+Manila+.",
+    "description": "Fine-tuned BERT Tagalog Base Uncased model for Filipino part of speech tagging. You can try the model on HuggingFace",
+    "type": "software"
+  },
+  {
+    "id": 'manila-zoo',
     "name": "Manila Zoo Revamp Prototype",
     "date": "June 2023",
     "imgSrc": "/img/projects/manila-zoo.png",
@@ -38,7 +39,7 @@ const projects = [
     "type": "ui"
   },
   {
-    "id": 4,
+    "id": 'ogglp',
     "name": "OGGLP: Learner Management System",
     "date": "June 2023",
     "imgSrc": "https://github.com/syke9p3/syke-portfolio/blob/master/src/website/ogglp.png?raw=true",
