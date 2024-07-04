@@ -23,11 +23,11 @@ const navItems: NavItem[] = [
     link: "/projects",
     icon: <BsGithub />
   },
-  {
-    name: "Contacts",
-    link: "/contacts",
-    icon: <BsGithub />
-  },
+  // {
+  //   name: "Contacts",
+  //   link: "/contacts",
+  //   icon: <BsGithub />
+  // },
   // {
   //   name: "Blogs",
   //   link: "/blogs",
