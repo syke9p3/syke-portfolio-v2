@@ -25,12 +25,3 @@
 
 11. Tech stack with rofi theme
 
-
-# Planned Features
-1. gallery
-2. lightbox
-3. theming (light mode)
-
-# Bug
-1. Navbar menu z-index is low
-2. Font is not Fira Code for other devices 
