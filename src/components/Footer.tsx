@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import navItems from "../data/navItems";
+import { navItems } from "../data/navItems.tsx";
 import socials from "../data/socials";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
