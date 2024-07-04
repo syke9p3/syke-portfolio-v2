@@ -8,27 +8,32 @@ interface NavItem {
 
 
 const navItems: NavItem[] = [
-    {
-      name: "Home",
-      link: "/",
-      icon: <BsGithub/>
-    },
-    {
-      name: "About",
-      link: "/about",
-      icon: <BsGithub/>
-    },
-    {
-      name: "Projects",
-      link: "/projects",
-      icon: <BsGithub/>
-    },
-    // {
-    //   name: "Blogs",
-    //   link: "/blogs",
-    //   icon: <BsGithub/>
-    // },
+  {
+    name: "Home",
+    link: "/",
+    icon: <BsGithub />
+  },
+  {
+    name: "About",
+    link: "/about",
+    icon: <BsGithub />
+  },
+  {
+    name: "Projects",
+    link: "/projects",
+    icon: <BsGithub />
+  },
+  {
+    name: "Contacts",
+    link: "/contacts",
+    icon: <BsGithub />
+  },
+  // {
+  //   name: "Blogs",
+  //   link: "/blogs",
+  //   icon: <BsGithub/>
+  // },
 
-  ];
+];
 
 export default navItems;
