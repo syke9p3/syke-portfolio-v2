@@ -1,35 +1,34 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
-interface Project {
-  id: number;
-  name: string;
-  date: string;
-  imgSrc: string;
-  link: string;
-  description: string;
-  type: string;
-}
+import { Project } from "../data/projectList";
 
 const ProjectCard = ({ project }: { project: Project }) => {
 
   return (
     <motion.div
       initial={{ opacity: 0, y: -50 }}
-      // animate={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      whileInView={{ opacity: 1, y: 0 }}
+    // whileInView={{ opacity: 1, y: 0 }}
     >
 
-      <div className="grid grid-cols-1 col-span-1 gap-8 sm:p-8">
-        <Link to={project.link} target="_blank" className="rounded-md">
+      <div className="grid grid-cols-1 col-span-1 gap-8 sm:p-8 ">
+        <a href={project.imgSrc} data-fancybox="gallery" className="rounded-md">
           <img
             src={project.imgSrc}
             alt=""
             className="col-span-1 transition-all duration-150 ease-in cursor-pointer max-h-[400px] rounded-md"
           />
-        </Link>
+        </a>
         <div>
+          <ul className="flex flex-wrap gap-2 pt-0 pb-4" onClick={(e) => e.stopPropagation()}>
+            {project.links && project.links.map((link, i) => (
+              <Link key={i} to={link.url} target="_blank" title={link.title}>
+                {link.icon}
+              </Link>
+            ))
+            }
+          </ul>
           <div className="flex flex-col col-span-1">
             <h1 className="mt-0 mb-6 text-2xl font-semibold leading-tight">{project.name}</h1>
             <p className="text-sm text-catppuccinSubtext1">
