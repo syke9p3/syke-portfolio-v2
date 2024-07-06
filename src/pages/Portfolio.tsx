@@ -178,12 +178,12 @@ const Browser = () => {
 
         {/* <ul className="grid p-16 gap-4 rounded-xl lg:grid-cols-2 xl:grid-cols-3 bg-catppuccinMantle min-h-[900px]"> */}
 
-        <div className="p-16">
+        <div className="p-4 md:p-16">
           <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 1024: 2, 1280: 3 }}>
 
             <Masonry>
               {filteredData.map((project, i) => (
-                <div key={i} className="mx-4 my-6">{project && <ProjectCard key={i} project={project} />}</div>
+                <div key={i} className="md:mx-4 my-6 rounded-xl bg-catppuccinCrust">{project && <ProjectCard key={i} project={project} />}</div>
               ))}
             </Masonry>
           </ResponsiveMasonry>

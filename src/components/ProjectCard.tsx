@@ -9,9 +9,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="rounded-xl overflow-hidden"
+      className="rounded-lg md:rounded-xl overflow-hidden "
     >
-      <div className="flex flex-col justify-center items-center col-span-1  bg-catppuccinCrust">
+      <div className="flex flex-col justify-center items-center col-span-1 ">
         <div className="rounded-md grid grid-cols-1 col-span-1 border border-transparent group/card hover:bg-catppuccinMantles r">
           <a href={project.imgSrc} data-fancybox="gallery" className="grid place-items-center bg-gray-50">
             <img
@@ -22,7 +22,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </a>
           <div className="px-3 py-2 pb-6">
             <div className="text-sm rounded-md px-4 grid gap-3 pt-6">
-              <Link to={project.link}>
+              <Link to={project.link} target="_blank">
                 <h1 className="mt-0 mb-3 text-2xl font-semibold leading-tight hover:text-indigo-400">{project.name}</h1>
               </Link>
               <p className=" text-catppuccinSubtext1">
