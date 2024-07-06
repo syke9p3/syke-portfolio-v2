@@ -5,6 +5,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        'cursive': ['Caveat', 'cursive']
+      },
       colors: {
         catppuccinRosewater: "#f5e0dc",
         catppuccinFlamingo: "#f2cdcd",
