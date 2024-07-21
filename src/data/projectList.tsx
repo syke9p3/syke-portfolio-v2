@@ -31,13 +31,13 @@ export const projects: Project[] = [
     name: "MLTHSC: Multilabel Tagalog Hate Speech Classifier",
     date: "June 2023",
     imgSrc: "/img/projects/mlthsc.jpg",
-    link: "https://thesis-passers.github.io/MLTHSC/",
+    link: "https://syke9p3.github.io/retrain-mlthsc/",
     description: "Fine-tuned BERT Tagalog model social media hate speech classifier that categorizes based on labels such as Age, Gender, Physical, Race, Religion, and Other discriminatory factors.",
     stack: "[HTML, CSS, JS, Python, Jupyter, Flask]",
     type: "software",
     links: [
       {
-        url: 'https://thesis-passers.github.io/MLTHSC/',
+        url: 'https://syke9p3.github.io/retrain-mlthsc/',
         icon: <HiOutlineExternalLink size={24} />,
         title: 'MLTHSC: Multilabel Tagalog Hate Speech Classifier'
       },
@@ -79,13 +79,13 @@ export const projects: Project[] = [
     name: "BERT Part-of-Speech Tagger",
     date: "August 2023",
     imgSrc: "/img/projects/bertpos-hf.png",
-    link: "https://huggingface.co/syke9p3/bert-tagalog-base-uncased-pos-tagger?text=Naisip+ko+na+kumain+na+lang+tayo+sa+pinakasikat+na+restaurant+sa+Manila+.",
+    link: "https://huggingface.co/spaces/syke9p3/bert-tagalog-base-uncased-part-of-speech-tagger",
     description: "Fine-tuned BERT Tagalog Base Uncased model for Filipino part of speech tagging. You can try the model on HuggingFace.",
     stack: "[Python, Jupyter, Hugging Face, Gradio]",
     type: "software",
     links: [
       {
-        url: 'https://huggingface.co/syke9p3/bert-tagalog-base-uncased-pos-tagger',
+        url: 'https://huggingface.co/spaces/syke9p3/bert-tagalog-base-uncased-part-of-speech-tagger',
         icon: <HiOutlineExternalLink size={24} />,
         title: 'Hugging Face'
       },
