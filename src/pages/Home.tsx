@@ -3,8 +3,9 @@ import Window from "../components/Window";
 import { CgChevronRight, CgFile } from "react-icons/cg";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import TextAnim from "../components/animation/CursorBlinker";
 import { useState } from "react";
+import Fancybox from "../components/Fancybox";
+import socials from "../data/socials";
 
 const Home = () => {
   return (
@@ -21,7 +22,7 @@ const Hero = () => {
   return (
     <>
       <main className="min-h-[900px] container mx-auto bg-cover bg-center bg-no-repeat">
-        <section id="hero" className="grid py-12 mx-4 lg:grid-cols-2 px-6">
+        <section id="hero" className="grid py-12 mx-4 xl:grid-cols-2 px-6">
           <BannerText />
           {/* <div className="flex flex-col gap-6 items-start md:space-y-12 md:flex-row"> */}
           <div className="flex relative flex-col justify-center items-center w-full min-h-72">
@@ -29,7 +30,7 @@ const Hero = () => {
               <PersonalInfoWindow />
             </div>
             <div className="relative w-full md:w-[75%] mt-8 lg:-mt-8 lg:ml-16">
-              <AboutMeWindow />
+              <SocialsWindow />
             </div>
           </div>
         </section>
@@ -53,7 +54,7 @@ const BannerText = () => {
           <span className="p-1 my-2">@syke9p3</span>
         </div> */}
         <p className="text-5xl font-bold lg:text-6xl">
-          Hello I'm <span className="text-catppuccinRed">Kenth</span>!
+          Hello I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">Kenth</span>!
         </p>
         {/* <hr className="mb-2 opacity-20" /> */}
         <Selection />
@@ -84,7 +85,7 @@ const Selection = () => {
     {
       name: 'software developer',
       link: 'software',
-      color: 'catppuccinBlue'
+      color: 'catppuccinRed'
     },
     {
       name: 'ui designer',
@@ -122,7 +123,7 @@ const Selection = () => {
 
             {
               selection.link == 'software' ? (
-                <span className="text-catppuccinBlue">
+                <span className="text-catppuccinRed">
                   {selection.name}
                 </span>
 
@@ -152,108 +153,127 @@ const Selection = () => {
 
 const PersonalInfoWindow = () => {
   return (
-    <Window header="Personal Information" delay={0.3}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className="items-center p-1 leading-[1.6em]"
-        style={{ fontFamily: "Fira Code" }}
-      >
-        <span className="mr-3">
-          <span className="px-4 bg-[#0087af] inline-block align-middle font-semibold text-white">
-            syke9p3
-          </span>
-          <span className="px-4 bg-[#585858] inline-block align-middle font-semibold text-white">
-            ~
-          </span>
-        </span>
-        biofetch
-        <div className="flex gap-3 pl-6 mt-6">
-          <img
-            src="https://avatars.githubusercontent.com/u/75114627?v=4"
-            alt=""
-            className="object-cover w-24 h-24 rounded-md border-white"
-          />
-          <div className="overflow-hidden relative rounded-md aspect-square">
-            <img
-              src="https://avatars.githubusercontent.com/u/75114627?v=4"
-              alt=""
-              className="object-cover absolute w-full h-full rounded-md border-white"
-            />
-          </div>
-          <div className="grid">
-            <div>
-              <p className="text-catppuccinGreen">@syke9p3</p>
-              <p>------------- </p>
+    <Fancybox
+      options={{
+        Carousel: {
+          infinite: false,
+        },
+        Thumbs: {
+          type: "classic",
+        },
+      }}
+    >
+      <Window header="personal information" delay={0.3}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="items-center p-1 leading-[1.6em]"
+          style={{ fontFamily: "Fira Code" }}
+        >
+          <span className="ml-6"><b className=" text-catppuccinGreen font-normal">@syke9p3:~$ </b> <i>biofetch</i> </span>
+
+          <div className="flex gap-3 pl-6 mt-6">
+
+            <a href={'https://avatars.githubusercontent.com/u/75114627?v=4'}
+              className="aspect-square w-24 h-24"
+              data-fancybox="gallery">
+              <img
+                src="https://avatars.githubusercontent.com/u/75114627?v=4"
+                alt=""
+                className="object-cover w-24 h-24 rounded-md border-white"
+              />
+            </a>
+
+            <div className="overflow-hidden relative rounded-md aspect-square">
+              <img
+                src="https://avatars.githubusercontent.com/u/75114627?v=4"
+                alt=""
+                className="object-cover absolute w-full h-full rounded-md border-white"
+              />
             </div>
-            <div className="flex overflow-x-scroll gap-2 pb-4">
+            <div className="grid">
               <div>
-                <div className="flex w-[800px] gap-8 overflow-x-scroll">
-                  <div>
-                    <p>
-                      <b className="text-catppuccinGreen">Name</b>: Kenth Saya-ang{" "}
-                    </p>
-                    <p>
-                      <b className="text-catppuccinGreen">Age</b>: 22{" "}
-                    </p>
-                    <p>
-                      <b className="text-catppuccinGreen">Location</b>: Taguig City{" "}
-                    </p>
-                    <p>
-                      <b className="text-catppuccinGreen"> Gender</b>: Male{" "}
-                    </p>
+                <p className="text-catppuccinGreen">@syke9p3</p>
+                <p>------------- </p>
+              </div>
+              <div className="flex overflow-x-scroll gap-2 pb-4">
+                <div>
+                  <div className="flex w-[800px] gap-8 overflow-x-scroll">
+                    <div>
+                      <p>
+                        <b className="text-catppuccinGreen">Name</b>: Kenth Saya-ang{" "}
+                      </p>
+                      <p>
+                        <b className="text-catppuccinGreen">Age</b>: 22{" "}
+                      </p>
+                      <p>
+                        <b className="text-catppuccinGreen">Location</b>: Taguig City{" "}
+                      </p>
+                      <p>
+                        <b className="text-catppuccinGreen"> Gender</b>: Male{" "}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
+
+
             </div>
-
-
           </div>
+        </motion.div>
+
+        <div className="pb-4 lg:pb-12">
+
         </div>
-      </motion.div>
 
-      <div className="pb-4 lg:pb-12">
+        <div className="grid p-1 max-h-64 md:grid-cols-12">
+          <div className="col-span-4 max-w-full"></div>
 
-      </div>
+        </div>
+      </Window>
+    </Fancybox>
 
-      <div className="grid p-1 max-h-64 md:grid-cols-12">
-        <div className="col-span-4 max-w-full"></div>
-
-      </div>
-    </Window>
   );
 };
 
-const AboutMeWindow = () => {
+const SocialsWindow = () => {
 
   const delays = [1, 5];
 
   return (
-    <Window header="about_me.txt" delay={delays[0]}>
+    <Window header="contacts" delay={delays[0]}>
       <div
         className="items-center p-1 leading-[1.6em] relative"
         style={{ fontFamily: "Fira Code" }}
       >
-        <div
-          className="">
-          <div className="px-2 mb-2 align-middle text-catppuccinBase bg-catppuccinSubtext0">
-            GNU Nano
-          </div>
-        </div>
-        <div className="flex gap-1 p-4">
-          <span className="pt-1">
-            <CgChevronRight />
-          </span>
-          <div className="grid gap-2">
-            <div className="leading-relaxed">
-              <TextAnim baseText={"I'm quite passionate about learning anything I find interesting."} delay={delays[0]} blinkDelay={0} removeCursor removeCursorDelay={0} />
-              <div className="inline-block h-5 w-[10px] translate-y-1 bg-transparent" />
-            </div>
-            <div className="leading-relaxed">
-              <TextAnim baseText={"Recently, I've been exploring the world of open source software and is looking repositories to contribute to."} delay={delays[0] + delays[1]} blinkDelay={delays[1]} removeCursor removeCursorDelay={3} />
-              <div className="inline-block h-5 w-[10px] translate-y-1 bg-transparent" />
-            </div>
+
+        <div className="flex gap-1 p-4  ">
+          <div className=" overflow-x-scroll gap-2 pb-4 w-full">
+            <p>
+              <b className="text-catppuccinGreen font-normal">@syke9p3:~/contacts$ </b>  <i>ls -l links</i>
+            </p>
+            {/* <p>
+                  <b className="text-catppuccinGreen">github: </b>syke9p3
+                </p>
+                <p>
+                  <b className="text-catppuccinGreen">linkedin: </b>/kenthsaya-ang
+                </p>
+                <p>
+                  <b className="text-catppuccinGreen">facebook: </b>: Kenth Saya-ang
+                </p> */}
+
+            {/* Icons */}
+            <section className="flex flex-wrap flex-col items-start justify-start mt-3 ">
+              {socials.map((social, i) => (
+                <Link to={social.link} target="_blank" key={i} className="flex group/stack rounded-xl text-gray-500 gap-2 place-items-center w-full">
+                  <div className="py-1 text-center flex justify-start items-center gap-2  group-hover/stack:text-catppuccinGreen">
+                    <div className={`  `}>{social.icon}</div> {/*  style={{ color: tech.color }} */}
+                    <p className="text-gray-500  group-hover/stack:text-catppuccinGreen">{social.name}: {social.user}</p>
+                  </div>
+                </Link>
+              ))}
+            </section>
           </div>
         </div>
       </div>
