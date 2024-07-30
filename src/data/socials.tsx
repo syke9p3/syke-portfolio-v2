@@ -11,19 +11,19 @@ interface ISocial {
 
 const socials: ISocial[] = [
   {
-    user: "Kenth Saya-ang",
+    user: "/kenthsaya-ang",
     name: "LinkedIn",
     icon: <FaLinkedin />,
     link: "https://www.linkedin.com/in/kenthsaya-ang/",
   },
   {
-    user: "syke9p3",
+    user: "/syke9p3",
     name: "GitHub",
     icon: <SiGithub />,
     link: "https://github.com/syke9p3",
   },
   {
-    user: "Kenth Saya-ang",
+    user: "/kgsayaang",
     name: "Facebook",
     icon: <FaFacebookF />,
     link: "https://www.facebook.com/kgsayaang/",

@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Portfolio from "./pages/Portfolio";
-// import Blog from "./pages/Blog";
+import Blog from "./pages/Blog";
 
 const Layout = () => {
     return (
@@ -33,10 +33,14 @@ const router = createBrowserRouter([
                 path: "/portfolio",
                 element: <Portfolio />,
             },
-            // {
-            //     path: "/blogs",
-            //     element: <Blog />,
-            // },
+            {
+                path: "/portfolio/details/:projectId",
+                element: <Blog />,
+            },
+            {
+                path: "/blogs",
+                element: <Blog />,
+            },
             {
                 path: "/about",
                 element: <About />,

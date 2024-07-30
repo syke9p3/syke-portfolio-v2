@@ -8,9 +8,11 @@ const PageLayout = ({ title, children }: { title: string, children: React.ReactN
                 <title>{title ? title + " | " : ""} Kenth Saya-ang</title>
             </Helmet>
 
-            <main className="min-h-[400px] container mx-auto bg-cover bg-center bg-no-repeat">
+            <main className="min-h-[90dvh] container mx-auto bg-cover bg-center bg-no-repeat">
                 {children}
             </main>
+
+            {/* <Footer /> */}
         </>
     );
 };

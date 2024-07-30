@@ -7,8 +7,8 @@ import { MdLocationPin } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="px-[5%] bg-catppuccinMantle py-6">
-      <Contact />
+    <footer className="px-[5%] bg-catppuccinMantle py-6  w-full bottom-0">
+      {/* <Contact /> */}
       <div className="container grid grid-cols-6 gap-12 mx-auto lg:grid-cols-12">
         <div className="flex flex-col flex-1 col-span-3 gap-2 md:col-span-2">
           <h3 className="text-lg font-bold">Links</h3>
@@ -40,7 +40,7 @@ const Footer = () => {
             I'm passionate with learning anything I find interesting.
           </p>
           <p className="mt-auto text-xs italic text-catppuccinSubtext0">
-            Powered by GitHub Pages © 2024 • Syke Portfolio
+            Deployed in Netlify © 2024 • Syke Portfolio
           </p>
         </div>
       </div>

@@ -1,13 +1,177 @@
 import { BsPerson } from "react-icons/bs"
 import PageLayout from "../components/PageLayout"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
+import { IProject, projects } from "../data/projectList"
+import { useEffect, useState } from "react"
+import Fancybox from "../components/Fancybox"
+import { motion } from "framer-motion";
+import avatar from "../assets/syke-0.jpg";
 
 const article: { content: string } = {
-  content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa deleniti ullam id beatae minus sapiente aliquid, eum assumenda maxime nobis, ad soluta voluptates eaque! Qui, eaque. Sunt praesentium quos et sit eligendi, esse accusamus aperiam fugiat perferendis explicabo fugit modi asperiores doloremque id repudiandae exercitationem, odit numquam voluptate est veritatis? Est nostrum repellendus voluptatum quas accusamus earum aut quibusdam. Nesciunt nostrum fugit blanditiis ipsum beatae dolorum voluptatibus. Maxime natus, quaerat optio quia quas ab obcaecati magni, commodi totam ex nam. Distinctio quo rerum nobis aliquam ipsum optio! Repudiandae, ipsam iste exercitationem, officia culpa atque vel dolores accusamus similique, cumque magni.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa deleniti ullam id beatae minus sapiente aliquid, eum assumenda maxime nobis, ad soluta voluptates eaque! Qui, eaque. Sunt praesentium quos et sit eligendi, esse accusamus aperiam fugiat perferendis explicabo fugit modi asperiores doloremque id repudiandae exercitationem, odit numquam voluptate est veritatis? Est nostrum repellendus voluptatum quas accusamus earum aut quibusdam. Nesciunt nostrum fugit blanditiis ipsum beatae dolorum voluptatibus. Maxime natus, quaerat optio quia quas ab obcaecati magni, commodi totam ex nam. Distinctio quo rerum nobis aliquam ipsum optio! Repudiandae, ipsam iste exercitationem, officia culpa atque vel dolores accusamus similique, cumque magni.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa deleniti ullam id beatae minus sapiente aliquid, eum assumenda maxime nobis, ad soluta voluptates eaque! Qui, eaque. Sunt praesentium quos et sit eligendi, esse accusamus aperiam fugiat perferendis explicabo fugit modi asperiores doloremque id repudiandae exercitationem, odit numquam voluptate est veritatis? Est nostrum repellendus voluptatum quas accusamus earum aut quibusdam. Nesciunt nostrum fugit blanditiis ipsum beatae dolorum voluptatibus. Maxime natus, quaerat optio quia quas ab obcaecati magni, commodi totam ex nam. Distinctio quo rerum nobis aliquam ipsum optio! Repudiandae, ipsam iste exercitationem, officia culpa atque vel dolores accusamus similique, cumque magni."
-
+  content: " "
 }
 
 const Blog = () => {
+
+  const { projectId } = useParams();
+
+  const [project, setProject] = useState<IProject | null>();
+  const [showAll, setShowAll] = useState(false); // State to toggle between showing all projects or not
+
+  const toggleShowProjects = () => {
+    setShowAll(prevShowAll => !prevShowAll); // Toggle the showAll state
+  };
+
+  useEffect(() => {
+    const selectedProject = projects.find(proj => proj.id === projectId)
+    setProject(selectedProject)
+
+    window.scrollTo(0, 0);
+
+  }, [projectId, projects])
+
+
+  return (
+    <>
+      <Fancybox
+        options={{
+          Carousel: {
+            infinite: false,
+          },
+          Thumbs: {
+            type: "classic",
+          },
+        }}
+      >
+        <Ads />
+        {/* <div className="grid place-items-center w-full h-64 text-center  bg-[url('https://images.unsplash.com/photo-1576502200916-3808e07386a5?q=80&w=2065&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-center bg-cover">
+        <h1 className="text-3xl font-semibold tracking-wide text-white lg:text-5xl font-poppins">How To Make a Blog Web Page</h1>
+      </div> */}
+        <PageLayout title={project?.name as string}>
+
+
+          {/* <div id="ad" className="relative my-8 w-full h-40"> */}
+          {/* <img id="ad"
+          src="https://infiniteingenuity.wordpress.com/wp-content/uploads/2015/03/leaderboard.jpg"
+          alt=""
+          className="my-8 w-full h-full border-white"
+        /> */}
+          {/* </div> */}
+          <div className="grid grid-cols-1 gap-8 px-8 m-auto my-12 xl:grid-cols-12">
+            {/* STICKY CONTENT */}
+            {/* <div className="">
+              <ul className="sticky top-16 p-8 my-12 bg-catppuccinMantle">
+                <p>A</p>
+                <p>B</p>
+                <p>C</p>
+                <p>D</p>
+                <p>E</p>
+              </ul>
+            </div> */}
+
+            {/* BLOG CONTENT */}
+            <motion.div className="md:col-span-8"
+              key={projectId}
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }} >
+              {/* Header */}
+              <div className="px-6">
+                {/* Project Name */}
+                <h1 className="text-4xl font-semibold text-gradient">{project?.name}</h1>
+                <div className="flex gap-6 mt-4 font-semibold tracking-wide uppercase">
+                  <div className="flex gap-2 items-center">
+                    <p className="text-catppuccinSubtext0">{project?.date}</p>
+                  </div>
+                  <div className="flex gap-2 items-center text-catppuccinSubtext0">
+                    <BsPerson />
+                    <p className="text-catppuccinSubtext0">Kenth Saya-ang</p>
+                  </div>
+                </div>
+              </div>
+              <a href={project?.imgSrc} data-fancybox="gallery">
+                <div className="my-8 overflow-hidden rounded-xl relative w-full pt-[56.25%]" title="Click image to view expanded">
+                  {/* <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="object-cover absolute top-0 left-0 w-full h-full" /> */}
+                  <img
+                    src={project?.imgSrc}
+                    alt={project?.name}
+                    className="object-cover absolute top-0 left-0 w-full h-full" />
+                </div>
+              </a>
+              <p className="px-6 my-6 tracking-wide leading-8 font-poppins">
+                {article.content}
+              </p>
+            </motion.div>
+            <div className="relative space-y-8 text-sm lg:col-span-4">
+
+
+              {/* OTHER PROJECTS */}
+              <motion.div
+                className="top-10 p-8 pb-4 rounded-xl border border-gray-600 -xl:sticky ">
+                <p className="pb-6 text-2xl font-semibold">Other Projects</p>
+                <motion.div
+                  key={projectId}
+                  initial={{ opacity: 0, y: 0 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="divide-y">
+
+                  {projects.filter((proj) => (proj.id !== project?.id)).slice(0, showAll ? projects.length : 3).map((proj) => (
+                    <Link to={`/portfolio/details/${proj.id}`} className="flex items-start py-4 border-gray-600 group/item">
+                      <div className="relative h-16 aspect-video">
+                        <img
+                          src={proj.imgSrc}
+                          alt=""
+                          className="object-cover absolute w-full h-full rounded-md border-white"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <h2 className="px-4 tracking-wide font-bold group-hover/item:text-blue-400">
+                          {proj.name}
+                        </h2>
+                        <div className=" overflow-hidden max-h-16 nowrap"
+                        >
+                          <p className="px-4 text-xs opacity-70 text-ellipsis">{proj.description}</p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </motion.div>
+                <button onClick={toggleShowProjects} className="w-full mt-4 text-blue-300">
+                  {showAll ? 'Hide other projects' : 'More projects'}
+                </button>
+
+              </motion.div>
+
+              {/* ABOUT ME */}
+              <div className="p-8 rounded-xl border border-gray-600">
+                <p className="pb-6 text-2xl font-semibold">About Me</p>
+                <div className="grid place-items-center">
+                  <div className="overflow-hidden relative mb-6 h-36 rounded-full bordser-4 border-white aspect-square">
+                    <img
+                      src={avatar}
+                      alt=""
+                      className="object-cover absolute w-full h-full rounded-md border-white"
+                    />
+                  </div>
+                </div>
+
+                <h5 className="mb-6 text-xl font-semibold tracking-wide text-center text-blue-400">Kenth Saya-ang</h5>
+                <p className="leading-relaxed text-center">
+                  I'm Kenth Saya-ang - some description of me being a computer science student and the things that I am working on. Mainly webdev with ReactJS and TailwindCSS, UI/UX Design with Figma, and some graphic illustrations.
+                </p>
+              </div>
+
+
+            </div>
+          </div>
+        </PageLayout>
+      </Fancybox >
+    </>
+  )
+}
+
+const Ads = () => {
   return (
     <>
       {/* <div className="ads">
@@ -55,141 +219,7 @@ const Blog = () => {
             className="h-[320px] border-white"
           />
         </div>
-      </div> */}
-
-
-
-      {/* <div className="grid place-items-center w-full h-64 text-center  bg-[url('https://images.unsplash.com/photo-1576502200916-3808e07386a5?q=80&w=2065&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-center bg-cover">
-        <h1 className="text-3xl font-semibold tracking-wide text-white lg:text-5xl font-poppins">How To Make a Blog Web Page</h1>
-      </div> */}
-      <PageLayout title="Blog">
-
-
-        {/* <div id="ad" className="relative my-8 w-full h-40"> */}
-        {/* <img id="ad"
-          src="https://infiniteingenuity.wordpress.com/wp-content/uploads/2015/03/leaderboard.jpg"
-          alt=""
-          className="my-8 w-full h-full border-white"
-        /> */}
-        {/* </div> */}
-        <div className="grid grid-cols-1 gap-8 px-8 m-auto my-12 lg:grid-cols-12">
-          {/* <div className="">
-            <ul className="sticky top-16 p-8 my-12 bg-catppuccinMantle">
-              <p>A</p>
-              <p>B</p>
-              <p>C</p>
-              <p>D</p>
-              <p>E</p>
-            </ul>
-          </div> */}
-          <div className="lg:col-span-8">
-            <div className="px-6">
-              <h1 className="text-4xl font-semibold">How To Make a Blog Web Page</h1>
-              <div className="flex gap-6 mt-4 font-semibold tracking-wide uppercase">
-                <div className="flex gap-2 items-center">
-                  <p className="text-catppuccinSubtext0">June 3, 2024</p>
-                </div>
-                <div className="flex gap-2 items-center text-catppuccinSubtext0">
-                  <BsPerson />
-                  <p className="text-catppuccinSubtext0">Kenth Saya-ang</p>
-                </div>
-              </div>
-            </div>
-            <div className="my-8 overflow-hidden rounded-xl relative w-full pt-[56.25%]">
-              <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="object-cover absolute top-0 left-0 w-full h-full" />
-            </div>
-            <p className="px-6 my-6 tracking-wide leading-8 font-poppins">
-              {article.content}
-              {article.content}
-              {article.content}
-              {article.content}
-            </p>
-          </div>
-          <div className="relative space-y-8 text-sm lg:col-span-4">
-
-            <div className="p-8 rounded-xl border border-gray-600">
-
-              <p className="pb-6 text-2xl font-semibold">About Me</p>
-              {/* <div id="ad" className="flex bottom-0 z-50 flex-col justify-end">
-                <div className="flex justify-between bg-white">
-                  <button className="px-2">x</button>
-                </div>
-                <img
-                  src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/tour-travel-agency-square-banner-promotion-design-template-5b312f8b7544637db786416e7619ed63_screen.jpg?ts=1644210325"
-                  alt=""
-                  className="h-[400px] my-6 border-white"
-                />
-              </div> */}
-              <div className="grid place-items-center">
-                <div className="overflow-hidden relative mb-6 h-36 rounded-full border-4 border-white aspect-square">
-                  <img
-                    src="https://avatars.githubusercontent.com/u/75114627?v=4"
-                    alt=""
-                    className="object-cover absolute w-full h-full rounded-md border-white"
-                  />
-                </div>
-              </div>
-
-              <h5 className="mb-6 text-xl font-semibold tracking-wide text-center text-blue-400">syke9p3</h5>
-              <p className="leading-relaxed text-center">
-                I'm Kenth Saya-ang - some description of me being a computer science student and the things that I am working on. Mainly webdev with ReactJS and TailwindCSS, UI/UX Design with Figma, and some graphic illustrations.
-              </p>
-            </div>
-            <div className="top-10 p-8 pb-4 rounded-xl border border-gray-600 xl:sticky">
-              <p className="pb-6 text-2xl font-semibold">Recent Posts</p>
-              <div className="divide-y">
-                <Link to="./" className="flex items-start py-4 border-gray-600">
-                  <div className="relative h-16 aspect-video">
-                    <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5NBWFHOtFE7KAnwV4X-d2ckblkk9HtUgo8sfhL1l7oSzZjushhp-Jqhka1LnhAi-mSYw&usqp=CAU"
-                      alt=""
-                      className="object-cover absolute w-full h-full rounded-md border-white"
-                    />
-                  </div>
-                  <h2 className="px-4 font-medium tracking-wide">
-                    Why should you switch to Linux in 2024
-                  </h2>
-                </Link>
-                <Link to="./" className="flex items-start py-4 border-gray-600">
-                  <div className="relative h-16 aspect-video">
-                    <img
-                      src="https://media.licdn.com/dms/image/D4E12AQHg37_sb8pKaA/article-cover_image-shrink_720_1280/0/1704739024503?e=2147483647&v=beta&t=E06Wk4RjbDRHIJz4JoDLaQfQk1CazWv-_wJs70se8Rg"
-                      alt=""
-                      className="object-cover absolute w-full h-full rounded-md border-white"
-                    />
-                  </div>
-                  <h2 className="px-4 font-medium tracking-wide">
-                    How to make modern website layouts with TailwindCSS
-                  </h2>
-                </Link>
-
-                <Link to="./" className="flex items-start py-4 border-gray-600">
-                  <div className="relative h-16 aspect-video">
-                    <img
-                      src="https://itsfoss.com/content/images/2023/10/install-vscodium-on-fedora.png"
-                      alt=""
-                      className="object-cover absolute w-full h-full rounded-md border-white"
-                    />
-                  </div>
-                  <h2 className="px-4 font-medium tracking-wide">
-                    VSCodium: the open-source VSCode alternative
-                  </h2>
-                </Link>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </PageLayout>
-      <p>
-        {article.content}
-        {article.content}
-        {article.content}
-        {article.content}
-        {article.content}
-      </p>
-    </>
+      </div> */}</>
   )
 }
 

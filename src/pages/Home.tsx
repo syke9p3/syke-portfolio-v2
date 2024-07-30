@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Fancybox from "../components/Fancybox";
 import socials from "../data/socials";
+import avatar from "../assets/syke-0.jpg"
 
 const Home = () => {
   return (
@@ -54,12 +55,12 @@ const BannerText = () => {
           <span className="p-1 my-2">@syke9p3</span>
         </div> */}
         <p className="text-5xl font-bold lg:text-6xl">
-          Hello I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">Kenth</span>!
+          Hello I'm <span className="text-gradient">Kenth</span>!
         </p>
         {/* <hr className="mb-2 opacity-20" /> */}
         <Selection />
         <div className="flex flex-col mt-4 max-w-md leading-relaxed text-catppuccinSubtext1">
-          Computer Science Student focusing on web development with React + TailwindCSS and UI/UX Design with Figma. Aspiring to be full stack developer.
+          4th year Computer Science student at PUP-Manila aspiring to be full stack developer.
         </div>
         <span>
           <Link to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4">
@@ -123,19 +124,19 @@ const Selection = () => {
 
             {
               selection.link == 'software' ? (
-                <span className="text-catppuccinRed">
+                <span className="text-cyan-300">
                   {selection.name}
                 </span>
 
               ) :
                 selection.link == 'ui' ? (
-                  <span className="text-catppuccinYellow">
+                  <span className="text-cyan-300">
                     {selection.name}
                   </span>
 
                 ) :
                   selection.link == 'graphic' ? (
-                    <span className="text-catppuccinTeal">
+                    <span className="text-cyan-300">
                       {selection.name}
                     </span>
                   ) : ('')
@@ -175,11 +176,11 @@ const PersonalInfoWindow = () => {
 
           <div className="flex gap-3 pl-6 mt-6">
 
-            <a href={'https://avatars.githubusercontent.com/u/75114627?v=4'}
+            <a href={avatar}
               className="aspect-square w-24 h-24"
               data-fancybox="gallery">
               <img
-                src="https://avatars.githubusercontent.com/u/75114627?v=4"
+                src={avatar}
                 alt=""
                 className="object-cover w-24 h-24 rounded-md border-white"
               />
@@ -202,10 +203,10 @@ const PersonalInfoWindow = () => {
                   <div className="flex w-[800px] gap-8 overflow-x-scroll">
                     <div>
                       <p>
-                        <b className="text-catppuccinGreen">Name</b>: Kenth Saya-ang{" "}
+                        <b className="text-catppuccinGreen">Name</b>: Kenth G. Saya-ang{" "}
                       </p>
                       <p>
-                        <b className="text-catppuccinGreen">Age</b>: 22{" "}
+                        <b className="text-catppuccinGreen">Birthday</b>: Sept 16, 2001{" "}
                       </p>
                       <p>
                         <b className="text-catppuccinGreen">Location</b>: Taguig City{" "}
@@ -217,8 +218,6 @@ const PersonalInfoWindow = () => {
                   </div>
                 </div>
               </div>
-
-
             </div>
           </div>
         </motion.div>
@@ -251,7 +250,7 @@ const SocialsWindow = () => {
         <div className="flex gap-1 p-4  ">
           <div className=" overflow-x-scroll gap-2 pb-4 w-full">
             <p>
-              <b className="text-catppuccinGreen font-normal">@syke9p3:~/contacts$ </b>  <i>ls -l links</i>
+              <b className="text-catppuccinGreen font-normal">@syke9p3:~/contacts$ </b>  <i>ls -a links</i>
             </p>
             {/* <p>
                   <b className="text-catppuccinGreen">github: </b>syke9p3
@@ -266,18 +265,19 @@ const SocialsWindow = () => {
             {/* Icons */}
             <section className="flex flex-wrap flex-col items-start justify-start mt-3 ">
               {socials.map((social, i) => (
-                <Link to={social.link} target="_blank" key={i} className="flex group/stack rounded-xl text-gray-500 gap-2 place-items-center w-full">
-                  <div className="py-1 text-center flex justify-start items-center gap-2  group-hover/stack:text-catppuccinGreen">
+                <Link to={social.link} target="_blank" key={i} className="flex group/stack rounded-xl text-gray-500 gap-2 place-items-center w-full justify-between">
+                  <div className="py-1 text-center flex justify-start items-center gap-2  group-hover/stack:text-catppuccinGreen ">
                     <div className={`  `}>{social.icon}</div> {/*  style={{ color: tech.color }} */}
-                    <p className="text-gray-500  group-hover/stack:text-catppuccinGreen">{social.name}: {social.user}</p>
+                    <p className="text-gray-500  group-hover/stack:text-catppuccinGreen">{social.name}</p>
                   </div>
+                  <p className="text-gray-500  group-hover/stack:text-catppuccinGreen">{social.user}</p>
                 </Link>
               ))}
             </section>
           </div>
         </div>
       </div>
-    </Window>
+    </Window >
   );
 };
 

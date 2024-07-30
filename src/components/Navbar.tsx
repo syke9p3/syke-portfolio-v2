@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { CgFile } from "react-icons/cg";
 import { navItems } from "../data/navItems";
 
@@ -11,16 +11,16 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="py-6 px-[5%] w-full ">
-      <div className="container flex justify-between items-center mx-auto">
+      <div className="container flex justify-between items-center mx-auto uppercase">
         <div className="flex justify-between items-center w-full">
           {/* <div id="nav-logo" className="relative text-4xl">K<span className="absolute top-2 left-5 text-teal-400">S</span></div> */}
-          <Link
+          <NavLink
             to="/"
             className="text-2xl font-bold"
           >
             {/* <img src="src/assets/logo5.png" className="h-[80px]" alt="Syke" /> */}
-            <p className="tracking-wid">syke9p3</p>
-          </Link>
+            <p className="tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 lowercase">syke9p3</p>
+          </NavLink>
 
           <div className="md:hidden">
             <button
@@ -41,43 +41,45 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
-          <ul className="gap-6 hidden md:flex">
+          {/* DESKTOP VIEW */}
+          <ul className="hidden md:flex">
             {navItems.map((item, i) => (
-              <Link
+              <NavLink
                 to={item.link}
                 key={i}
-                className="grid relative place-items-center px-1 py-6 w-full rounded nav-item md:w-auto md:py-0 text-catppuccinSubtext1 hover:text-blue-500"
+                className="grid relative place-items-center px-4 py-6 w-full rounded nav-item md:w-auto md:py-0 text-catppuccinSubtext1 hover:text-blue-500 aria-[current=page]:text-blue-400"
               >
                 <li className="font-medium">{item.name}</li>
-              </Link>
+              </NavLink>
             ))}
-            <Link to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4">
+            <NavLink to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4 ml-3">
               <button className="flex gap-2 items-center px-4 py-3 text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full group hover:from-cyan-400 hover:to-blue-400 text-catppuccinBase">
                 <div className="group-hover:" ><CgFile size={20} /></div>
                 My Resume
               </button>
-            </Link>
+            </NavLink>
 
           </ul>
 
+          {/* MOBILE VIEW */}
           <ul
             className={`md:hidden absolute top-20 z-[40]  flex-col gap-3 shadow-md bg-[#181825] p-4 transition-all duration-300 ease-in-out right-5 ${!isOpened ? "hidden" : "flex"}`}
           >
             {navItems.map((item, i) => (
-              <Link
+              <NavLink
                 to={item.link}
                 key={i}
-                className="grid relative place-items-center px-6 py-3 w-full rounded nav-item md:w-auto md:py-0 text-catppuccinSubtext1 hover:text-blue-500"
+                className="grid relative place-items-center px-6 py-3 w-full rounded nav-item md:w-auto md:py-0 text-catppuccinSubtext1 hover:text-blue-500 aria-[current=page]:text-blue-400"
               >
                 <li className="font-medium">{item.name}</li>
-              </Link>
+              </NavLink>
             ))}
-            <Link to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4">
+            <NavLink to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4">
               <button className="flex gap-2 items-center px-4 py-3 text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full group hover:from-cyan-400 hover:to-blue-400 text-catppuccinBase">
                 <div className="group-hover:" ><CgFile size={20} /></div>
                 My Resume
               </button>
-            </Link>
+            </NavLink>
 
           </ul>
         </div>

@@ -13,7 +13,7 @@ const Window = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className={`overflow-hidden rounded-xl border-2 border-gray-800 shadow-xl ${highlight === true ?? 'hover:border-catppuccinPeach'}`}>
+    <div className={` hover:bg-slate-100 overflow-hidden rounded-xl border-2 border-gray-800 ${highlight === true ?? 'hover:border-catppuccinPeach'}`}>
       <div
         className="w-full resize-y text-catppuccinSubtext1 bg-catppuccinMantle min-h-32 group"
       >

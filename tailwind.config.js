@@ -55,4 +55,10 @@ export default {
     },
   },
   plugins: [],
+  safelist: [
+    {
+      pattern: /bg-.+/,
+      variants: ['hover', 'focus'],
+    }
+  ]
 };
