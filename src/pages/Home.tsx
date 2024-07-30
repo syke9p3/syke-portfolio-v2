@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Terminal from "../components/Window";
-import { CgChevronRight, CgFile } from "react-icons/cg";
+import { CgChevronRight } from "react-icons/cg";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { useState } from "react";

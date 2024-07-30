@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import ResumeButton from "./ResumeButton";
 import { NavLink } from "react-router-dom";
-import { CgFile } from "react-icons/cg";
 import { navItems } from "../data/navItems";
 import { RxHamburgerMenu } from "react-icons/rx";
-import ThemeButton from "./ThemeButton";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { IoMoonOutline } from "react-icons/io5";
 import useTheme from "../hooks/useTheme";
