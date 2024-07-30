@@ -20,9 +20,9 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center w-full">
           <NavLink
             to="/"
-            className="text-2xl font-bold"
+            className="text-2xl"
           >
-            <p className="tracking-wide text-transparent bg-clip-text text-gradient lowercase">syke9p3</p>
+            <p className="text-transparent bg-clip-text text-gradient lowercase">syke9p3</p>
           </NavLink>
 
           <div className="md:hidden">

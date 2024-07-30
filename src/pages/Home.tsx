@@ -23,7 +23,7 @@ const Home = () => {
 const Hero = () => {
   return (
     <>
-      <main className="min-h-[900px] container mx-auto bg-cover bg-center bg-no-repeat">
+      <main className="min-h-[80dvh] container mx-auto bg-cover bg-center bg-no-repeat">
         <section id="hero" className="grid py-12 mx-4 xl:grid-cols-2 px-6">
           <BannerText />
           {/* <div className="flex flex-col gap-6 items-start md:space-y-12 md:flex-row"> */}
@@ -261,8 +261,8 @@ const SocialsWindow = () => {
             {/* Icons */}
             <section className="flex flex-wrap flex-col items-start justify-start mt-3 px-2">
               {socials.map((social, i) => (
-                <Link to={social.link} target="_blank" key={i} className=" flex group/stack rounded-xl text-gray-500 gap-2 place-items-center w-full justify-between">
-                  <div className="py-1 px-2 text-center flex justify-start items-center gap-2  group-hover/stack:text-catppuccinGreen ">
+                <Link to={social.link} target="_blank" key={i} className=" flex group/stack rounded-xl text-gray-500 gap-2 place-items-center w-full justify-between  hover:bg-catppuccinCrust">
+                  <div className="py-1 px-2 text-center flex justify-start items-center gap-2  group-hover/stack:text-catppuccinGreen">
                     <div className={`  `}>{social.icon}</div> {/*  style={{ color: tech.color }} */}
                     <p className="text-gray-500  group-hover/stack:text-catppuccinGreen">{social.name}</p>
                   </div>
