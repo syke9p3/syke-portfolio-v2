@@ -5,6 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {}
+
 
 * {
     /* @apply font-poppins text-catppuccinText;; */
@@ -15,6 +17,24 @@
 
 * {
     font-family: "Fira Code";
+    scrollbar-color: #3B82F6 #11111B;
+
+}
+
+
+/* For Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #040404;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #3B82F6;
+    border-radius: 20px;
+    border: 3px solid #11111B;
 }
 
 
@@ -60,4 +80,8 @@ h1 {
 
 .animate {
     @apply transition duration-150 ease-in
+}
+
+.text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500;
 }

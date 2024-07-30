@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import ProjectCard from "../components/ProjectCard.tsx";
 import Window from "../components/Window.tsx";
-import { projects, Project } from "../data/projectList.tsx";
+import { projects, IProject } from "../data/projectList.tsx";
 import {
   FaArrowLeft,
   FaArrowRight,
@@ -16,17 +16,16 @@ import { BsSearch } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import { FiFigma } from "react-icons/fi";
 import { SiVisualstudiocode } from "react-icons/si";
-import Fancybox from "../components/Fancybox.tsx";
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
-interface Category {
+interface ICategory {
   name: string;
   icon: React.ReactNode;
 }
 
 
 
-const categories: Record<string, Category> = {
+const categories: Record<string, ICategory> = {
   all: {
     name: "everything!",
     icon: <FaGithub />,
@@ -54,16 +53,16 @@ const Portfolio = () => {
       <Helmet>
         <title>Portfolio | Kenth Saya-ang</title>
       </Helmet>
-      <main className="flex flex-col min-h-[90vh] py-8 container mx-auto px-6" id="projects">
+      <main className="flex flex-col min-h-[90vh] py-8 container mx-auto px-6  " id="projects">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }} className="flex flex-col gap-6 mt-12 mb-16">
-          <h1 className="text-5xl font-bold text-indigo-500 uppercase md:text-5xl xl:text-6xl">
+          transition={{ duration: 0.5 }} className="flex flex-col gap-6 mt-12 mb-16 text-center items-center">
+          <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600 uppercase md:text-6xl xl:text-7xl">
             Portfolio
           </h1>
           <p className="max-w-md leading-relaxed text-catppuccinSubtext1">
-            Some of the best projects I have worked on both for personal and academic.
+            Some of the best projects I have worked on both personal and academic.
           </p>
         </motion.div>
         <Browser />
@@ -72,15 +71,16 @@ const Portfolio = () => {
   );
 };
 
-const filterData = (projects: Project[], searchTerm: string, category: CategoryKey) => {
+const filterData = (projects: IProject[], searchTerm: string, category: CategoryKey) => {
   const search = searchTerm.toLowerCase();
   return projects.filter((project) => {
     const name = project.name.toLowerCase();
     const description = project.description.toLowerCase();
     const type = project.type.toLowerCase();
+    const stack = project.stack.toLowerCase();
 
     return (
-      (name.includes(search) || description.includes(search)) &&
+      (name.includes(search) || description.includes(search) || description.includes(search) || stack.includes(search)) &&
       (category === 'all' || type === category)
     );
   });
@@ -105,7 +105,6 @@ const Browser = () => {
   };
 
   const filteredData = useMemo(() => filterData(projects, searchTerm, category), [searchTerm, category]);
-
 
   return (
     <Window header="Syke9p3 - Projects">
@@ -165,7 +164,7 @@ const Browser = () => {
         </div>
       </div>
 
-      <Fancybox
+      {/* <Fancybox
         options={{
           Carousel: {
             infinite: false,
@@ -174,24 +173,26 @@ const Browser = () => {
             type: "classic",
           },
         }}
-      >
+      > */}
 
-        {/* <ul className="grid p-16 gap-4 rounded-xl lg:grid-cols-2 xl:grid-cols-3 bg-catppuccinMantle min-h-[900px]"> */}
+      {/* <ul className="grid p-16 gap-4 rounded-xl lg:grid-cols-2 xl:grid-cols-3 bg-catppuccinMantle min-h-[900px]"> */}
 
-        <div className="p-4 md:p-16">
-          <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 1024: 2, 1280: 3 }}>
-
-            <Masonry>
-              {filteredData.map((project, i) => (
-                <div key={i} className="md:mx-4 my-6 rounded-xl bg-catppuccinCrust">{project && <ProjectCard key={i} project={project} />}</div>
-              ))}
-            </Masonry>
-          </ResponsiveMasonry>
+      <div className="p-4 md:p-16">
+        <div className="text-center mb-12 opacity-70">
+          {/* {`${numberOfProjects} item${numberOfProjects > 1 ? 's' : ''}`} */}
         </div>
+        <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 1024: 2, 1280: 2 }}>
 
+          <Masonry>
+            {filteredData.map((project, i) => (
+              <div key={i} className="md:mx-2 my-6 rounded-xl bg-catppuccinCrust">{project && <ProjectCard key={i} category={category} project={project} />}</div>
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
+      </div>
 
-        {/* </ul > */}
-      </Fancybox>
+      {/* </ul > */}
+      {/* </Fancybox> */}
 
     </Window >
   )
