@@ -1,105 +1,17 @@
-# Syke Portfolio 
+# Kenth's Vite, React + Tailwind Website Portfolio  
 [![Netlify Status](https://api.netlify.com/api/v1/badges/68ec0d12-45b2-4cf6-baf6-6e788e57dc8f/deploy-status)](https://app.netlify.com/sites/syke9p3/deploys)
+<!-- [![Github Pages Status](https://github.com/syke9p3/syke-portfolio-v2/actions/workflows/deploy.yml/badge.svg)](https://github.com/syke9p3/syke-portfolio-v2/actions/workflows/deploy.yml) -->
 
-# Resume
+Second iteration of Kenth Saya-ang's website portfolio.
 
-1. Add github links to projects 
+Made with Vite, React + TailwindCSS + Framer Motion.
 
-## Breaking changes
+Website theme is inspired from [Catppuccin Mocha](https://github.com/catppuccin/catppuccin) and my Linux Mint Cinammon rice.  
 
-1. Recreate this project in **NextJS** 
+(v1): [HTML Portfolio](https://github.com/syke9p3/syke-portfolio)
 
-2. Use only one page
-
-# Todo
-1. syke logo
-
-2. json data for projects
-
-3. Add icons to Projects tab menu items
-
-4. Casual tone for section subheaders
-
-5. Look for inspiration in penpot website
-
-6. Mention the inspirations (*catppuccin*, *linux mint*)
-
-7. Subtle grid-like background in banner
-
-8. Change font to monospace, sans-serif
-
-9. Blog page layout
-
-10. Project slider
-
-11. Tech stack with rofi theme
-
-## Content
-
-
-### Banner
-
-1. Move *Personal Information* to **About Me**
-
-2. Remove background of my creative shot pic with Canva
-
-3. Grid background
-
-### About Me
-
-
-Computer Science Student focusing on web development with React + TailwindCSS and UI/UX with Figma. Aspiring to be full stack developer.
-
-
-### Skills
-Colored hover style. Copy colors from my github readme
-
-### Services
-
-1. Web Design
-- description
-
-2. UI/UX Design
-- description
-
-3. Illustration
-- description
-
-### Certifications
-
-
-
-### Contacts
-
-```bash
-@syke9p3:~/Contacts$ ls -l socials
-
-facebook: Kenth Saya-ang
-linkedin: kenthsaya-ang
-github: syke9p3 
-
-```
-
-### Portfolio
-
-1. Illustrations tab
-- add illustrations from photoshop, the video with yt link
-
-2. Add instructions to subheading
-Some of the best projects I have worked on both for personal and academic. Click on the tabs below to filter projects based on software, ui design, and illustrations.
-
-3. MLTHSC: Multilabel Tagalog Hate Speech Classifier
-- add "Thesis Project" in the description
-- **!PRIORITY:**  Retrain the model - search for fine-tuning pos tagger with BERT
-- 
-
-4. Markdown parser blog page. Explain detals/documentation about the projects. Find the documents in the Thesis GC. Try to look if blog page template is still in Hu Tao website
-
-### Footer
-
-Designed & Built by Kenth Saya-ang
-
-Theme is inspired from Catppuccin Mocha. 
-
-Built with Vite React and Tailwind CSS, deployed with Netlify. 
+## Technologies Used
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
