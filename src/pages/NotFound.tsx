@@ -1,9 +1,8 @@
 import { Helmet } from "react-helmet";
 import Terminal from "../components/Window";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ResumeButton from "../components/ResumeButton";
-import { CgFile, CgHome } from "react-icons/cg";
+import { CgHome } from "react-icons/cg";
 
 const NotFound = () => {
   return (
