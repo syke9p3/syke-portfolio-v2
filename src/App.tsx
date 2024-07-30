@@ -6,6 +6,9 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
+import { MdOutlineWbSunny } from "react-icons/md";
+import { IoMoonOutline } from "react-icons/io5";
+import useTheme from "./hooks/useTheme";
 
 const Layout = () => {
     return (
@@ -56,10 +59,11 @@ const router = createBrowserRouter([
 
 
 const App = () => {
+
     return (
-        <>
+        <div id="app">
             <RouterProvider router={router} />
-        </>
+        </div >
     )
 }
 

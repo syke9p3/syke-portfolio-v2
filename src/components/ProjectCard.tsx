@@ -10,9 +10,9 @@ const ProjectCard = ({ project, category }: { project: IProject, category: strin
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="rounded-lg md:rounded-xl overflow-hidden "
+      className="rounded-lg md:rounded-xl"
     >
-      <div className="flex flex-col justify-center items-center col-span-1 ">
+      <div className="flex flex-col justify-center items-center col-span-1">
         {/* <Link to={`/portfolio/details/${project.id}`} className="group/card"> */}
         <Link to={project.link} target="_blank" className="group/card">
           <div className="rounded-md grid grid-cols-1 col-span-1 border border-transparent hover:bg-catppuccinMantles r">
@@ -25,7 +25,7 @@ const ProjectCard = ({ project, category }: { project: IProject, category: strin
             </div>
             <div className="px-3 py-2 pb-6">
               <div className="text-sm rounded-md px-4 grid gap-3 pt-6">
-                <h1 className="mt-0 mb-3 text-2xl font-semibold leading-tight group-hover/card:text-blue-400 animate">{project.name}</h1>
+                <h1 className="mt-0 mb-3 text-2xl font-semibold leading-tight group-hover/card:text-blue-500 animate">{project.name}</h1>
                 <p className=" text-catppuccinSubtext1">
                   {project.description}
                 </p>
@@ -42,7 +42,7 @@ const ProjectCard = ({ project, category }: { project: IProject, category: strin
           <div className="gap-2 flex" onClick={(e) => e.stopPropagation()}>
             {project.links && project.links.map((link, i) => (
               <i>
-                <Link key={i} to={link.url} target="_blank" title={link.title} className={`hover:text-blue-400 aspect-square`}>
+                <Link key={i} to={link.url} target="_blank" title={link.title} className={`hover:text-blue-500 aspect-square`}>
                   {link.icon}
                 </Link>
               </i>

@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import ResumeButton from "./ResumeButton";
 import { NavLink } from "react-router-dom";
 import { CgFile } from "react-icons/cg";
 import { navItems } from "../data/navItems";
+import { RxHamburgerMenu } from "react-icons/rx";
+import ThemeButton from "./ThemeButton";
+import { MdOutlineWbSunny } from "react-icons/md";
+import { IoMoonOutline } from "react-icons/io5";
+import useTheme from "../hooks/useTheme";
 
 
 const Navbar: React.FC = () => {
+
   const [isOpened, setIsOpened] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   console.log(isOpened);
 
@@ -13,31 +21,19 @@ const Navbar: React.FC = () => {
     <nav className="py-6 px-[5%] w-full ">
       <div className="container flex justify-between items-center mx-auto uppercase">
         <div className="flex justify-between items-center w-full">
-          {/* <div id="nav-logo" className="relative text-4xl">K<span className="absolute top-2 left-5 text-teal-400">S</span></div> */}
           <NavLink
             to="/"
             className="text-2xl font-bold"
           >
-            {/* <img src="src/assets/logo5.png" className="h-[80px]" alt="Syke" /> */}
-            <p className="tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 lowercase">syke9p3</p>
+            <p className="tracking-wide text-transparent bg-clip-text text-gradient lowercase">syke9p3</p>
           </NavLink>
 
           <div className="md:hidden">
             <button
-              className="flex items-center px-3 py-2  scale-[150%]"
+              className="flex items-center px-3 py-2 scale-[150%] text-catppuccinText"
               onClick={() => setIsOpened(!isOpened)}
             >
-              <svg
-                className="h-3 w-3"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Menu</title>
-                <path
-                  fill="#fff"
-                  d="M0 3h20v2h-20v-2zM0 9h20v2h-20v-2zM0 15h20v2h-20v-2z"
-                />
-              </svg>
+              <RxHamburgerMenu />
             </button>
           </div>
 
@@ -47,40 +43,40 @@ const Navbar: React.FC = () => {
               <NavLink
                 to={item.link}
                 key={i}
-                className="grid relative place-items-center px-4 py-6 w-full rounded nav-item md:w-auto md:py-0 text-catppuccinSubtext1 hover:text-blue-500 aria-[current=page]:text-blue-400"
+                className="animate hover:bg-catppuccinCrust grid relative place-items-center px-4 py-6 w-full rounded nav-item md:w-auto md:py-0 text-catppuccinSubtext1 aria-[current=page]:text-blue-500"
               >
                 <li className="font-medium">{item.name}</li>
               </NavLink>
             ))}
-            <NavLink to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4 ml-3">
-              <button className="flex gap-2 items-center px-4 py-3 text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full group hover:from-cyan-400 hover:to-blue-400 text-catppuccinBase">
-                <div className="group-hover:" ><CgFile size={20} /></div>
-                My Resume
+            <div className="ml-2 aspect-square min-w-10 rounded-md animate hover:bg-catppuccinCrust">
+              <button onClick={toggleTheme} className="aspect-square min-w-10 rounded-md text-catppuccinText">
+                <span className="text-2xl grid place-items-center">
+                  {theme === 'light' ? (<MdOutlineWbSunny />) : (<IoMoonOutline />)}
+                </span>
               </button>
-            </NavLink>
-
+            </div>
           </ul>
 
           {/* MOBILE VIEW */}
           <ul
-            className={`md:hidden absolute top-20 z-[40]  flex-col gap-3 shadow-md bg-[#181825] p-4 transition-all duration-300 ease-in-out right-5 ${!isOpened ? "hidden" : "flex"}`}
+            className={`rounded-xl md:hidden absolute top-20 z-[40]  flex-col shadow-lg bg-catppuccinMantle p-4 transition-all duration-300 ease-in-out right-5 ${!isOpened ? "hidden" : "flex"}`}
           >
+            <div className="text-center ">
+              <button onClick={toggleTheme} className="py-4 animate hover:bg-catppuccinCrust w-full min-w-10 rounded-md text-catppuccinText">
+                <span className="text-2xl grid place-items-center">
+                  {theme === 'light' ? (<MdOutlineWbSunny />) : (<IoMoonOutline />)}
+                </span>
+              </button>
+            </div>
             {navItems.map((item, i) => (
               <NavLink
                 to={item.link}
                 key={i}
-                className="grid relative place-items-center px-6 py-3 w-full rounded nav-item md:w-auto md:py-0 text-catppuccinSubtext1 hover:text-blue-500 aria-[current=page]:text-blue-400"
+                className="animate hover:bg-catppuccinCrust grid relative place-items-center px-6 py-4 w-full rounded nav-item md:w-auto md:py-0 text-catppuccinSubtext1 hover:text-blue-500 aria-[current=page]:text-blue-400"
               >
                 <li className="font-medium">{item.name}</li>
               </NavLink>
             ))}
-            <NavLink to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4">
-              <button className="flex gap-2 items-center px-4 py-3 text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full group hover:from-cyan-400 hover:to-blue-400 text-catppuccinBase">
-                <div className="group-hover:" ><CgFile size={20} /></div>
-                My Resume
-              </button>
-            </NavLink>
-
           </ul>
         </div>
       </div>

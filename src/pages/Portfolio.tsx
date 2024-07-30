@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import ProjectCard from "../components/ProjectCard.tsx";
-import Window from "../components/Window.tsx";
+import Terminal from "../components/Window.tsx";
 import { projects, IProject } from "../data/projectList.tsx";
 import {
   FaArrowLeft,
@@ -107,16 +107,15 @@ const Browser = () => {
   const filteredData = useMemo(() => filterData(projects, searchTerm, category), [searchTerm, category]);
 
   return (
-    <Window header="Syke9p3 - Projects">
+    <Terminal header="Syke9p3 - Projects">
       {/* Filter */}
-      {/* <div className="grid grid-cols-2 px-1 pt-3 rounded-xl md:grid-cols-4 bg-[#21133d]"> */}
       <div className="grid sm:grid-cols-2 md:flex bg-[#21133d] gap-1 ">
         {categories && Object.keys(categories).map((item, i) => (
           <button
             onClick={() => { handleChangeCategory(item) }}
             className={`px-3 py-2 border duration-75 ease-out leading-tight rounded-sm  hover:bg-[#3f2b66] ${item == category
               ? `x-text-catppuccinMantle text-white bg-[#3c1f7b] hover:bg-[#3c1f7b]  border-[#ac70ff] `
-              : `text-catppuccinText border-transparent`
+              : `border-transparent text-white opacity-80`
               } `}
             key={i}
           >
@@ -182,10 +181,9 @@ const Browser = () => {
           {/* {`${numberOfProjects} item${numberOfProjects > 1 ? 's' : ''}`} */}
         </div>
         <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 1024: 2, 1280: 2 }}>
-
           <Masonry>
             {filteredData.map((project, i) => (
-              <div key={i} className="md:mx-2 my-6 rounded-xl bg-catppuccinCrust">{project && <ProjectCard key={i} category={category} project={project} />}</div>
+              <div key={i} className="md:mx-4 my-6 rounded-xl bg-catppuccinCrust animate">{project && <ProjectCard key={i} category={category} project={project} />}</div>
             ))}
           </Masonry>
         </ResponsiveMasonry>
@@ -194,7 +192,7 @@ const Browser = () => {
       {/* </ul > */}
       {/* </Fancybox> */}
 
-    </Window >
+    </Terminal >
   )
 }
 

@@ -5,20 +5,107 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {}
 
 
-* {
-    /* @apply font-poppins text-catppuccinText;; */
-    @apply font-poppins;
-    ;
-    /* font-family: 'Poppins', sans-serif; */
+:root {
+    --catppuccin-rosewater: #dc8a78;
+    --catppuccin-flamingo: #dd7878;
+    --catppuccin-pink: #ea76cb;
+    --catppuccin-mauve: #8839ef;
+    --catppuccin-red: #d20f39;
+    --catppuccin-maroon: #e64553;
+    --catppuccin-peach: #fe640b;
+    --catppuccin-yellow: #df8e1d;
+    --catppuccin-green: #40a02b;
+    --catppuccin-teal: #179299;
+    --catppuccin-sky: #04a5e5;
+    --catppuccin-sapphire: #209fb5;
+    --catppuccin-blue: #1e66f5;
+    --catppuccin-lavender: #7287fd;
+    --catppuccin-text: #353641;
+    --catppuccin-subtext1: #5c5f77;
+    --catppuccin-subtext0: #6c6f85;
+    --catppuccin-overlay2: #7c7f93;
+    --catppuccin-overlay1: #8c8fa1;
+    --catppuccin-overlay0: #9ca0b0;
+    --catppuccin-surface2: #acb0be;
+    --catppuccin-surface1: #bcc0cc;
+    --catppuccin-surface0: #ccd0da;
+    --catppuccin-base: #e3e7f0;
+    --catppuccin-mantle: #E6E9EF;
+    --catppuccin-crust: #dce0e8;
 }
 
-* {
-    font-family: "Fira Code";
-    scrollbar-color: #3B82F6 #11111B;
+.light {
+    --catppuccin-rosewater: #dc8a78;
+    --catppuccin-flamingo: #dd7878;
+    --catppuccin-pink: #ea76cb;
+    --catppuccin-mauve: #8839ef;
+    --catppuccin-red: #d20f39;
+    --catppuccin-maroon: #e64553;
+    --catppuccin-peach: #fe640b;
+    --catppuccin-yellow: #df8e1d;
+    --catppuccin-green: #40a02b;
+    --catppuccin-teal: #179299;
+    --catppuccin-sky: #04a5e5;
+    --catppuccin-sapphire: #209fb5;
+    --catppuccin-blue: #1e66f5;
+    --catppuccin-lavender: #7287fd;
+    --catppuccin-text: #353641;
+    --catppuccin-subtext1: #5c5f77;
+    --catppuccin-subtext0: #6c6f85;
+    --catppuccin-overlay2: #7c7f93;
+    --catppuccin-overlay1: #8c8fa1;
+    --catppuccin-overlay0: #9ca0b0;
+    --catppuccin-surface2: #acb0be;
+    --catppuccin-surface1: #bcc0cc;
+    --catppuccin-surface0: #ccd0da;
+    --catppuccin-base: #e3e7f0;
+    --catppuccin-mantle: #E6E9EF;
+    --catppuccin-crust: #dce0e8;
+}
 
+.dark {
+    --catppuccin-rosewater: #f5e0dc;
+    --catppuccin-flamingo: #f2cdcd;
+    --catppuccin-pink: #f5c2e7;
+    --catppuccin-mauve: #cba6f7;
+    --catppuccin-red: #f38ba8;
+    --catppuccin-maroon: #eba0ac;
+    --catppuccin-peach: #fab387;
+    --catppuccin-yellow: #f9e2af;
+    --catppuccin-green: #a6e3a1;
+    --catppuccin-teal: #94e2d5;
+    --catppuccin-sky: #89dceb;
+    --catppuccin-sapphire: #74c7ec;
+    --catppuccin-blue: #89b4fa;
+    --catppuccin-lavender: #b4befe;
+    --catppuccin-text: #cdd6f4;
+    --catppuccin-subtext1: #bac2de;
+    --catppuccin-subtext0: #a6adc8;
+    --catppuccin-overlay2: #9399b2;
+    --catppuccin-overlay1: #7f849c;
+    --catppuccin-overlay0: #6c7086;
+    --catppuccin-surface2: #585b70;
+    --catppuccin-surface1: #45475a;
+    --catppuccin-surface0: #313244;
+    --catppuccin-base: #1e1e2e;
+    --catppuccin-mantle: #181825;
+    --catppuccin-crust: #1c1c2b;
+}
+
+
+
+
+* {
+    font-family: "Fira Code", monospace;
+    scrollbar-color: #3B82F6 rgb(0, 0, 0, 0);
+
+}
+
+:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px hsla(220, 100%, 50%, 80%);
 }
 
 
@@ -28,18 +115,18 @@
 }
 
 *::-webkit-scrollbar-track {
-    background: #040404;
+    background: rgb(0, 0, 0, 0);
 }
 
 *::-webkit-scrollbar-thumb {
     background-color: #3B82F6;
     border-radius: 20px;
-    border: 3px solid #11111B;
+    border: 3px solid rgb(0, 0, 0, 0);
 }
 
 
 body {
-    @apply bg-catppuccinBase
+    @apply bg-catppuccinBase animate
 }
 
 p, span {
@@ -83,5 +170,9 @@ h1 {
 }
 
 .text-gradient {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500;
+}
+
+.bg-gradient {
+    @apply bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400;
 }

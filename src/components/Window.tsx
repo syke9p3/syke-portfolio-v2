@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from 'framer-motion'
 
-const Window = ({
+const Terminal = ({
   header,
   children,
   delay,
@@ -13,7 +13,7 @@ const Window = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className={` hover:bg-slate-100 overflow-hidden rounded-xl border-2 border-gray-800 ${highlight === true ?? 'hover:border-catppuccinPeach'}`}>
+    <div className={` hover:bg-slate-100 overflow-hidden rounded-xl border-2 border-catppuccinSurface0 ${highlight === true ?? 'hover:border-catppuccinPeach'}`}>
       <div
         className="w-full resize-y text-catppuccinSubtext1 bg-catppuccinMantle min-h-32 group"
       >
@@ -45,4 +45,4 @@ const Window = ({
   );
 };
 
-export default Window;
+export default Terminal;

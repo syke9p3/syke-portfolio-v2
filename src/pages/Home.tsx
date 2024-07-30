@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Window from "../components/Window";
+import Terminal from "../components/Window";
 import { CgChevronRight, CgFile } from "react-icons/cg";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useState } from "react";
 import Fancybox from "../components/Fancybox";
 import socials from "../data/socials";
 import avatar from "../assets/syke-0.jpg"
+import ResumeButton from "../components/ResumeButton";
 
 const Home = () => {
   return (
@@ -59,16 +60,11 @@ const BannerText = () => {
         </p>
         {/* <hr className="mb-2 opacity-20" /> */}
         <Selection />
-        <div className="flex flex-col mt-4 max-w-md leading-relaxed text-catppuccinSubtext1">
+        <div className="flex flex-col text-lg mt-4 max-w-md leading-relaxed text-catppuccinSubtext1">
           4th year Computer Science student at PUP-Manila aspiring to be full stack developer.
         </div>
         <span>
-          <Link to={'/files/Saya-ang,Kenth_Resume.pdf'} target="_blank" className="inline-block my-4">
-            <button className="flex gap-2 items-center px-4 py-3 text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full group hover:from-cyan-400 hover:to-blue-400 text-catppuccinBase">
-              <div className="group-hover:" ><CgFile size={20} /></div>
-              My Resume
-            </button>
-          </Link>
+          <ResumeButton />
         </span>
       </motion.div>
 
@@ -103,7 +99,7 @@ const Selection = () => {
   return (
     <div className="flex gap-2 leading-relaxed -translate-x-6 lg:text-md text-catppuccinSubtext1">
       {selections && selections.map((selection, i) => (
-        <a href={`/#projects?category=${selection.link}`} className='border-white border-opacity-20'>
+        <a href={`/#projects?category=${selection.link}`} className='text-lg border-white border-opacity-20'>
           <div className="flex gap-2 pr-2 pb-3 h-full group" key={i}
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
@@ -124,19 +120,19 @@ const Selection = () => {
 
             {
               selection.link == 'software' ? (
-                <span className="text-cyan-300">
+                <span className="text-catppuccinSapphire">
                   {selection.name}
                 </span>
 
               ) :
                 selection.link == 'ui' ? (
-                  <span className="text-cyan-300">
+                  <span className="text-catppuccinSapphire">
                     {selection.name}
                   </span>
 
                 ) :
                   selection.link == 'graphic' ? (
-                    <span className="text-cyan-300">
+                    <span className="text-catppuccinSapphire">
                       {selection.name}
                     </span>
                   ) : ('')
@@ -164,7 +160,7 @@ const PersonalInfoWindow = () => {
         },
       }}
     >
-      <Window header="personal information" delay={0.3}>
+      <Terminal header="personal information" delay={0.3}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -230,7 +226,7 @@ const PersonalInfoWindow = () => {
           <div className="col-span-4 max-w-full"></div>
 
         </div>
-      </Window>
+      </Terminal>
     </Fancybox>
 
   );
@@ -241,7 +237,7 @@ const SocialsWindow = () => {
   const delays = [1, 5];
 
   return (
-    <Window header="contacts" delay={delays[0]}>
+    <Terminal header="contacts" delay={delays[0]}>
       <div
         className="items-center p-1 leading-[1.6em] relative"
         style={{ fontFamily: "Fira Code" }}
@@ -263,21 +259,21 @@ const SocialsWindow = () => {
                 </p> */}
 
             {/* Icons */}
-            <section className="flex flex-wrap flex-col items-start justify-start mt-3 ">
+            <section className="flex flex-wrap flex-col items-start justify-start mt-3 px-2">
               {socials.map((social, i) => (
-                <Link to={social.link} target="_blank" key={i} className="flex group/stack rounded-xl text-gray-500 gap-2 place-items-center w-full justify-between">
-                  <div className="py-1 text-center flex justify-start items-center gap-2  group-hover/stack:text-catppuccinGreen ">
+                <Link to={social.link} target="_blank" key={i} className=" flex group/stack rounded-xl text-gray-500 gap-2 place-items-center w-full justify-between">
+                  <div className="py-1 px-2 text-center flex justify-start items-center gap-2  group-hover/stack:text-catppuccinGreen ">
                     <div className={`  `}>{social.icon}</div> {/*  style={{ color: tech.color }} */}
                     <p className="text-gray-500  group-hover/stack:text-catppuccinGreen">{social.name}</p>
                   </div>
-                  <p className="text-gray-500  group-hover/stack:text-catppuccinGreen">{social.user}</p>
+                  <p className="text-gray-500  group-hover/stack:text-catppuccinGreen pr-2">{social.user}</p>
                 </Link>
               ))}
             </section>
           </div>
         </div>
       </div>
-    </Window >
+    </Terminal >
   );
 };
 
