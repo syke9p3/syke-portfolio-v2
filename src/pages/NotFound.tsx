@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import Terminal from "../components/Window";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { CgHome } from "react-icons/cg";
+import { BiHomeAlt2 } from "react-icons/bi";
 
 const NotFound = () => {
   return (
@@ -46,7 +46,7 @@ const NotFoundTerminal = () => {
               <p className="my-4 text-sm">The page you are looking for does not exist.</p>
               <Link to={'/'} className="inline-block my-4 rounded-full">
                 <button className="flex gap-2 items-center px-4 py-3 text-sm font-semibold bg-gradient rounded-full group text-catppuccinBase">
-                  <div className="group-hover:" ><CgHome size={20} /></div>
+                  <div className="group-hover:" ><BiHomeAlt2 size={20} /></div>
                   Return to Home Page
                 </button>
               </Link>

@@ -6,10 +6,8 @@ import { useEffect, useState } from "react"
 import Fancybox from "../components/Fancybox"
 import { motion } from "framer-motion";
 import avatar from "../assets/syke-0.jpg";
-
-const article: { content: string } = {
-  content: " "
-}
+import NotFound from "./NotFound"
+import Markdown from "../content/Markdown"
 
 const Blog = () => {
 
@@ -29,6 +27,10 @@ const Blog = () => {
     window.scrollTo(0, 0);
 
   }, [projectId, projects])
+
+  if (!project) return (
+    <NotFound />
+  )
 
 
   return (
@@ -89,22 +91,23 @@ const Blog = () => {
                   </div>
                 </div>
               </div>
+              {/* Banner Image */}
               <a href={project?.imgSrc} data-fancybox="gallery">
-                <div className="my-8 overflow-hidden rounded-xl relative w-full pt-[56.25%]" title="Click image to view expanded">
+                <div className="my-8 rounded-xl relative w-full overflow-hidden" title="Click image to view expanded">
                   {/* <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="object-cover absolute top-0 left-0 w-full h-full" /> */}
                   <img
                     src={project?.imgSrc}
                     alt={project?.name}
-                    className="object-cover absolute top-0 left-0 w-full h-full" />
+                    className="w-full h-full" />
                 </div>
               </a>
               <p className="px-6 my-6 tracking-wide leading-8 font-poppins">
-                {article.content}
+                {/* {article.content} */}
+
+                <Markdown />
               </p>
             </motion.div>
-            <div className="relative space-y-8 text-sm lg:col-span-4">
-
-
+            <div className="relative space-y-8 text-sm xl:col-span-4">
               {/* OTHER PROJECTS */}
               <motion.div
                 className="top-10 p-8 pb-4 rounded-xl border border-gray-600 -xl:sticky ">
@@ -158,7 +161,7 @@ const Blog = () => {
 
                 <h5 className="mb-6 text-xl font-semibold tracking-wide text-center text-blue-400">Kenth Saya-ang</h5>
                 <p className="leading-relaxed text-center">
-                  I'm Kenth Saya-ang - some description of me being a computer science student and the things that I am working on. Mainly webdev with ReactJS and TailwindCSS, UI/UX Design with Figma, and some graphic illustrations.
+                  I'm quite passionate when it comes to learning stuff in a wide range of interests - web design, UI/UX designs, graphic illustrations, animation.
                 </p>
               </div>
 
