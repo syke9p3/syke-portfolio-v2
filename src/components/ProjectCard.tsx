@@ -1,26 +1,25 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { IProject } from "../data/projectList";
 
 const ProjectCard = ({ project, category }: { project: IProject, category: string }) => {
 
   return (
-    <motion.div
+    <div
       key={category}
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.1 }}
-      className="rounded-lg md:rounded-xl"
+      // initial={{ opacity: 0, y: -50 }}
+      // animate={{ opacity: 1, y: 0 }}
+      // transition={{ duration: 0.5, delay: 0.1 }}
+      className="rounded-lg md:rounded-xl border-2 border-catppuccinSurface0 overflow-hidden"
     >
       <div className="flex flex-col justify-center items-center col-span-1">
-        {/* <Link to={`/portfolio/details/${project.id}`} className="group/card"> */}
-        <Link to={project.link} target="_blank" className="group/card">
+        <Link to={`/portfolio/details/${project.id}`} className="group/card">
+          {/* <Link to={project.link} target="_blank" className="group/card"> */}
           <div className="rounded-md grid grid-cols-1 col-span-1 border border-transparent hover:bg-catppuccinMantles r">
-            <div className="grid place-items-center bg-gray-50">
+            <div className="grid place-items-center bg-catppuccinSurface0">
               <img
                 src={project.imgSrc}
                 alt=""
-                className="col-span-1 transition-all duration-150 ease-in cursor-pointer max-h-[400px]"
+                className="col-span-1 transition-all duration-150 ease-in cursor-pointer max-h-[400px] rounded-t-lg md:rounded-t-xl"
               />
             </div>
             <div className="px-3 py-2 pb-6">
@@ -51,7 +50,7 @@ const ProjectCard = ({ project, category }: { project: IProject, category: strin
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 
 

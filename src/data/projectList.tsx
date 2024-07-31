@@ -28,11 +28,11 @@ export interface IProject {
   type: string;
   link: string;
   stack: string;
-  links?: {
+  links: {
     url: string,
     icon: React.ReactNode,
     title: string
-  }[]
+  }[],
 }
 
 export const projects: IProject[] = [
@@ -56,7 +56,7 @@ export const projects: IProject[] = [
         icon: <FiGithub size={24} />,
         title: 'Github'
       },
-    ]
+    ],
   },
   {
     id: 'wfp-website',

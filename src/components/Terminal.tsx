@@ -13,7 +13,7 @@ const Terminal = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className={` hover:bg-slate-100 overflow-hidden rounded-xl border-2 border-catppuccinSurface0 ${highlight === true ?? 'hover:border-catppuccinPeach'}`}>
+    <div className={`text-xs md:text-sm lg:text-base hover:bg-slate-100 overflow-hidden rounded-xl border-2 border-catppuccinSurface0 ${highlight === true ?? 'hover:border-catppuccinPeach'}`}>
       <div
         className="w-full resize-y text-catppuccinSubtext1 bg-catppuccinMantle min-h-32 group"
       >
@@ -21,7 +21,7 @@ const Terminal = ({
           <div
             className="flex overflow-hidden justify-between items-center p-4 bg-catppuccinMantle">
             <span></span>
-            <span className="font-['monospace'] opacity-80 group-hover:opacity-100 text-sm truncate max-w-full">
+            <span className="font-['monospace'] opacity-80 group-hover:opacity-100 truncate max-w-full">
               {header}
             </span>
             <div

@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
-import Terminal from "../components/Window";
+import Terminal from "../components/Terminal";
 import { CgChevronRight } from "react-icons/cg";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Fancybox from "../components/Fancybox";
 import socials from "../data/socials";
 import avatar from "../assets/syke-0.jpg"
 import ResumeButton from "../components/ResumeButton";
+import Avatar from "../components/Avatar";
+import { entranceVariants } from "../components/animation/animationVariants";
 
 const Home = () => {
   return (
@@ -47,9 +48,9 @@ const BannerText = () => {
   return (
     <div className="grid relative flex-col place-content-center py-12 pb-24 sm:flex sm:flex-row">
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial="hidden"
+        animate="shown"
+        variants={entranceVariants}
         className="flex relative flex-col gap-3"
       >
         {/* <div className="b">
@@ -60,8 +61,8 @@ const BannerText = () => {
         </p>
         {/* <hr className="mb-2 opacity-20" /> */}
         <Selection />
-        <div className="flex flex-col text-lg mt-4 max-w-md leading-relaxed text-catppuccinSubtext1">
-          4th year Computer Science student at PUP-Manila aspiring to be full stack developer.
+        <div className="flex flex-col text-sm md:text-lg mt-4 max-w-md leading-relaxed text-catppuccinSubtext1">
+          Graduating Computer Science student at the Polytechnic University of the Philippines - Manila, aspiring to be full stack developer.
         </div>
         <span>
           <ResumeButton />
@@ -97,10 +98,10 @@ const Selection = () => {
   ]
 
   return (
-    <div className="flex gap-2 leading-relaxed -translate-x-6 lg:text-md text-catppuccinSubtext1">
+    <div className="md:flex gap-2 leading-relaxed md:-translate-x-6 text-xs lg:text-lg text-catppuccinSubtext1">
       {selections && selections.map((selection, i) => (
-        <a href={`/#projects?category=${selection.link}`} className='text-lg border-white border-opacity-20'>
-          <div className="flex gap-2 pr-2 pb-3 h-full group" key={i}
+        <a href={`/#projects?category=${selection.link}`} key={i} className='border-white border-opacity-20'>
+          <div className="flex gap-2 pr-2 pb-3 md:h-full group"
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
           >
@@ -150,86 +151,64 @@ const Selection = () => {
 
 const PersonalInfoWindow = () => {
   return (
-    <Fancybox
-      options={{
-        Carousel: {
-          infinite: false,
-        },
-        Thumbs: {
-          type: "classic",
-        },
-      }}
-    >
-      <Terminal header="personal information" delay={0.3}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="items-center p-1 leading-[1.6em]"
-          style={{ fontFamily: "Fira Code" }}
-        >
-          <span className="ml-6"><b className=" text-catppuccinGreen font-normal">@syke9p3:~$ </b> <i>biofetch</i> </span>
 
-          <div className="flex gap-3 pl-6 mt-6">
+    <Terminal header="personal information" delay={0.3}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="items-center p-1 leading-[1.6em]"
+        style={{ fontFamily: "Fira Code" }}
+      >
+        <span className="ml-6"><b className=" text-catppuccinGreen font-normal">@syke9p3:~$ </b> <i>biofetch</i> </span>
 
-            <a href={avatar}
-              className="aspect-square w-24 h-24"
-              data-fancybox="gallery">
-              <img
-                src={avatar}
-                alt=""
-                className="object-cover w-24 h-24 rounded-md border-white"
-              />
-            </a>
-
-            <div className="overflow-hidden relative rounded-md aspect-square">
-              <img
-                src="https://avatars.githubusercontent.com/u/75114627?v=4"
-                alt=""
-                className="object-cover absolute w-full h-full rounded-md border-white"
-              />
+        <div className="grid lg:flex gap-3 pl-6 mt-6">
+          <div className="min-w-[100px]">
+            <Avatar src={avatar} />
+          </div>
+          <div className="grid">
+            <div>
+              <p className="text-catppuccinGreen">@syke9p3</p>
+              <p>------------- </p>
             </div>
-            <div className="grid">
+            <div className="flex overflow-x-scroll gap-2 pb-4">
               <div>
-                <p className="text-catppuccinGreen">@syke9p3</p>
-                <p>------------- </p>
-              </div>
-              <div className="flex overflow-x-scroll gap-2 pb-4">
-                <div>
-                  <div className="flex w-[800px] gap-8 overflow-x-scroll">
-                    <div>
-                      <p>
-                        <b className="text-catppuccinGreen">Name</b>: Kenth G. Saya-ang{" "}
-                      </p>
-                      <p>
-                        <b className="text-catppuccinGreen">Birthday</b>: Sept 16, 2001{" "}
-                      </p>
-                      <p>
-                        <b className="text-catppuccinGreen">Location</b>: Taguig City{" "}
-                      </p>
-                      <p>
-                        <b className="text-catppuccinGreen"> Gender</b>: Male{" "}
-                      </p>
-                    </div>
+                <div className="flex w-[800px] gap-8 overflow-x-scroll">
+                  <div>
+                    <p>
+                      <b className="text-catppuccinGreen">Name</b>: Kenth G. Saya-ang{" "}
+                    </p>
+                    <p>
+                      <b className="text-catppuccinGreen">Birthday</b>: Sept 16, 2001{" "}
+                    </p>
+                    <p>
+                      <b className="text-catppuccinGreen">Location</b>: Taguig City{" "}
+                    </p>
+                    <p>
+                      <b className="text-catppuccinGreen"> Gender</b>: Male{" "}
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </motion.div>
-
-        <div className="pb-4 lg:pb-12">
-
         </div>
+      </motion.div>
 
-        <div className="grid p-1 max-h-64 md:grid-cols-12">
-          <div className="col-span-4 max-w-full"></div>
+      <div className="pb-4 lg:pb-12">
 
-        </div>
-      </Terminal>
-    </Fancybox>
+      </div>
+
+      <div className="grid p-1 max-h-64 md:grid-cols-12">
+        <div className="col-span-4 max-w-full"></div>
+
+      </div>
+    </Terminal>
+
 
   );
+
+
 };
 
 const SocialsWindow = () => {

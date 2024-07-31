@@ -61,7 +61,7 @@
 
 3. Grid background
 
-### About Me
+✅ ### About Me
 
 
 Computer Science Student focusing on web development with React + TailwindCSS and UI/UX with Figma. Aspiring to be full stack developer.
@@ -85,7 +85,7 @@ Colored hover style. Copy colors from my github readme
 
 
 
-### Contacts
+✅ ### Contacts
 
 ```bash
 @syke9p3:~/Contacts$ ls -l socials
@@ -98,20 +98,23 @@ github: syke9p3
 
 ### Portfolio
 
-1. Illustrations tab
+❌ 1. Illustrations tab
 - add illustrations from photoshop, the video with yt link
 
-2. Add instructions to subheading
+🚧 2. Add instructions to subheading
 Some of the best projects I have worked on both for personal and academic. Click on the tabs below to filter projects based on software, ui design, and illustrations.
+About Me - get to know me more 
 
 3. MLTHSC: Multilabel Tagalog Hate Speech Classifier
-- add "Thesis Project" in the description
-- **!PRIORITY:**  Retrain the model - search for fine-tuning pos tagger with BERT
+❌ - add "Thesis Project" in the description
+✅ - **!PRIORITY:**  Retrain the model - search for fine-tuning pos tagger with BERT
 - 
 
-4. Markdown parser blog page. Explain detals/documentation about the projects. Find the documents in the Thesis GC. Try to look if blog page template is still in Hu Tao website
+🚧 4. Markdown parser blog page. Explain detals/documentation about the projects. Find the documents in the Thesis GC. Try to look if blog page template is still in Hu Tao website
 
 ### Footer
+
+❌ TODO: remake footer - look for references in other portfolios
 
 Designed & Built by Kenth Saya-ang
 
@@ -119,3 +122,18 @@ Theme is inspired from Catppuccin Mocha.
 
 Built with Vite React and Tailwind CSS, deployed with Netlify. 
 
+
+### The Plan for markdown
+
+```tsx
+
+// Use markdown component as: 
+<Markdown>{children}</Markdown>
+
+const Markdown = ({children}: {children: React.ReactNode}) => {
+    <motion.div>
+        {children}
+    </motion.div>
+}
+
+```

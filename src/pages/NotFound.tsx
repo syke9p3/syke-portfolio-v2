@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import Terminal from "../components/Window";
+import Terminal from "../components/Terminal";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BiHomeAlt2 } from "react-icons/bi";
