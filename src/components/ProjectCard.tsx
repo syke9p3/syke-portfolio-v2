@@ -12,8 +12,8 @@ const ProjectCard = ({ project, category }: { project: IProject, category: strin
       className="rounded-lg md:rounded-xl border-2 border-catppuccinSurface0 overflow-hidden"
     >
       <div className="flex flex-col justify-center items-center col-span-1">
-        <Link to={`/portfolio/details/${project.id}`} className="group/card">
-          {/* <Link to={project.link} target="_blank" className="group/card"> */}
+        {/* <Link to={`/portfolio/details/${project.id}`} className="group/card"> */}
+        <Link to={project.link} target="_blank" className="group/card">
           <div className="rounded-md grid grid-cols-1 col-span-1 border border-transparent hover:bg-catppuccinMantles r">
             <div className="grid place-items-center bg-catppuccinSurface0">
               <img
