@@ -1,14 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import Terminal from "../components/Terminal";
 import { CgChevronRight } from "react-icons/cg";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import socials from "../data/socials";
 import avatar from "../assets/syke-0.jpg"
 import ResumeButton from "../components/ResumeButton";
 import Avatar from "../components/Avatar";
-import { entranceVariants } from "../components/animation/animationVariants";
 
 const Home = () => {
   return (
@@ -22,9 +21,21 @@ const Home = () => {
 };
 
 const Hero = () => {
+
+  const [scope, animate] = useAnimate()
+
+  useEffect(() => {
+
+    const enterAnimation = async () => {
+      await animate("#BannerText", { opacity: 1, y: 0 })
+
+    }
+    enterAnimation();
+  }, [])
+
   return (
     <>
-      <main className="min-h-[80dvh] container mx-auto bg-cover bg-center bg-no-repeat">
+      <main ref={scope} className="min-h-[75dvh] grid place-content-center container mx-auto bg-cover bg-center bg-no-repeat">
         <section id="hero" className="grid py-12 mx-4 xl:grid-cols-2 px-6">
           <BannerText />
           {/* <div className="flex flex-col gap-6 items-start md:space-y-12 md:flex-row"> */}
@@ -50,7 +61,6 @@ const BannerText = () => {
       <motion.div
         initial="hidden"
         animate="shown"
-        variants={entranceVariants}
         className="flex relative flex-col gap-3"
       >
         {/* <div className="b">

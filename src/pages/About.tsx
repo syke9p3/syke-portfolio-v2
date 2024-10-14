@@ -7,6 +7,7 @@ import TextAnim from "../components/animation/CursorBlinker";
 import avatar from "../assets/syke-1.jpeg"
 import Avatar from "../components/Avatar";
 import { entranceVariants } from "../components/animation/animationVariants";
+import YoutubeEmbed from "../components/YoutubeEmbed";
 
 const containerVariant = {
   hidden: { opacity: 0, y: -50 },
@@ -81,10 +82,12 @@ const AboutMeWindow = () => {
             <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600 uppercase md:text-6xl xl:text-7xl">
               About Me
             </h1>
-            <p className="max-w-md leading-relaxed text-catppuccinSubtext1">
-
-            </p>
+            {/* <p className="max-w-md leading-relaxed text-catppuccinSubtext1">
+            </p> */}
           </motion.div>
+          <div className="mb-8">
+            <YoutubeEmbed />
+          </div>
           <Terminal header="description.txt" delay={delays[0]}>
             <div
               className="items-center p-1 leading-[1.6em] relative"
@@ -93,26 +96,26 @@ const AboutMeWindow = () => {
               <div className="px-4 mb-2 align-middle text-catppuccinBase bg-catppuccinSubtext0">
                 GNU Nano
               </div>
+
               <div className="grid lg:flex gap-3 p-3">
-                <div className="min-w-[100px]">
+                <div className="min-w-[100px] ">
                   <Avatar src={avatar} />
                 </div>
-                <div className="flex gap-1">
+                <div className="flex gap-1 ">
                   <span className="pt-1">
                     <CgChevronRight />
                   </span>
-                  <div className="grid gap-2">
+                  <div className="grid gap-2 ">
                     <div className="leading-relaxed">
                       <TextAnim baseText={"I'm quite passionate about learning anything I find interesting."} delay={delays[0]} blinkDelay={0} removeCursor removeCursorDelay={0} />
                       <div className="inline-block h-5 w-[10px] translate-y-1 bg-transparent" />
                       <TextAnim baseText={"Recently, I've been exploring the world of open source software and is looking repositories to contribute to."} delay={delays[0] + delays[1]} blinkDelay={delays[1]} removeCursor removeCursorDelay={3} />
                     </div>
                     <div className="leading-relaxed">
-                      <div className="inline-block h-5 w-[10px] translate-y-1 bg-transparent" />
+                      <div className="inline-block w-[10px] translate-y-1 bg-transparent" />
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </Terminal>

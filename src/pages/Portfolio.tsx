@@ -15,7 +15,7 @@ import {
 import { BsSearch } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import { FiFigma } from "react-icons/fi";
-import { SiVisualstudiocode } from "react-icons/si";
+import { SiAdobephotoshop, SiVisualstudiocode } from "react-icons/si";
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { entranceVariants } from "../components/animation/animationVariants.ts";
 
@@ -25,15 +25,16 @@ interface ICategory {
 }
 
 const variant = {
-  initial: { opacity: 0, y: -50 },
-  animate: (index: number) => ({
-    opacity: 1,
-    y: 0,
+  initial: { opacity: 0, y: 0 },
+  animate: {
+    opacity: 100,
+    y: 50,
     transition: {
       duration: 0.5,
-      delay: 0.05 * index,
+      delay: 0.05,
     }
-  }),
+  },
+
 }
 
 
@@ -50,10 +51,10 @@ const categories: Record<string, ICategory> = {
     name: "ui designs",
     icon: <FiFigma />,
   },
-  // graphic: {
-  //   name: "illustrations",
-  //   icon: <SiAdobephotoshop />,
-  // },
+  graphics: {
+    name: "illustrations",
+    icon: <SiAdobephotoshop />,
+  },
 }
 
 type CategoryKey = keyof typeof categories;
@@ -89,10 +90,17 @@ const filterData = (projects: IProject[], searchTerm: string, category: Category
     const name = project.name.toLowerCase();
     const description = project.description.toLowerCase();
     const type = project.type.toLowerCase();
-    const stack = project.stack.toLowerCase();
+    const stack = project.stack.map((s) => {
+      return s.toLowerCase();
+    });
+
+    // stack is an array with lowercased words inside 
+    // for each string in stack, check if the string contains the key search term
+    const stackHasSearchTerm = stack.some((s) => s.includes(search))
+    // console.log(`stack includes(${search}) is `, stackHasSearchTerm)
 
     return (
-      (name.includes(search) || description.includes(search) || description.includes(search) || stack.includes(search)) &&
+      (name.includes(search) || description.includes(search) || description.includes(search) || stackHasSearchTerm) &&
       (category === 'all' || type === category)
     );
   });
@@ -179,40 +187,30 @@ const Browser = () => {
             </div>
           </div>
         </div>
-        {/* <Fancybox
-          options={{
-            Carousel: {
-              infinite: false,
-            },
-            Thumbs: {
-              type: "classic",
-            },
-          }}
-        > */}
-        {/* <ul className="grid p-16 gap-4 rounded-xl lg:grid-cols-2 xl:grid-cols-3 bg-catppuccinMantle min-h-[900px]"> */}
-        <div className="p-4 md:p-16">
+        <div className="p-4 md:p-16 group/container">
           <div className="text-center mb-12 opacity-70">
             {/* {`${numberOfProjects} item${numberOfProjects > 1 ? 's' : ''}`} */}
           </div>
-          <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 1024: 2, 1280: 2 }}>
+          <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 1024: 2, 1280: 3 }}>
             <Masonry>
               {filteredData.map((project, i) => (
                 <motion.div
-                  key={i}
+                  key={i + category}
                   variants={variant}
                   initial="initial"
                   whileInView="animate"
+
+                  whileTap="tap"
                   viewport={{
                     once: true
                   }}
                   custom={i}
-                  className="md:mx-4 my-6 rounded-xl bg-catppuccinCrust ">{project && <ProjectCard key={i} category={category} project={project} />}</motion.div>
+                  className="md:mx-4 my-6 rounded-xl bg-catppuccinMantle hover:bg-catppuccinCrust group group-hover/container:scale-50 scale-50 "
+                >{project && <ProjectCard key={i + category} category={category} project={project} />}</motion.div>
               ))}
             </Masonry>
           </ResponsiveMasonry>
         </div>
-        {/* </ul > */}
-        {/* </Fancybox> */}
       </Terminal >
     </motion.div>
   )
