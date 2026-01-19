@@ -8,6 +8,7 @@ import socials from "../data/socials";
 import avatar from "../assets/syke-0.jpg"
 import ResumeButton from "../components/ResumeButton";
 import Avatar from "../components/Avatar";
+import { categories } from "../data/port-links";
 
 const Home = () => {
   return (
@@ -63,13 +64,9 @@ const BannerText = () => {
         animate="shown"
         className="flex relative flex-col gap-3"
       >
-        {/* <div className="b">
-          <span className="p-1 my-2">@syke9p3</span>
-        </div> */}
         <p className="text-5xl font-bold lg:text-6xl">
           Hello I'm <span className="text-gradient">Kenth</span>!
         </p>
-        {/* <hr className="mb-2 opacity-20" /> */}
         <Selection />
         <div className="flex flex-col text-sm md:text-lg mt-4 max-w-md leading-relaxed text-catppuccinSubtext1">
           Graduating Computer Science student at the Polytechnic University of the Philippines - Manila, aspiring to be full stack developer.
@@ -89,28 +86,10 @@ const Selection = () => {
 
   const [hovered, setHovered] = useState<number | null>(null);
 
-  const selections = [
-    {
-      name: 'software developer',
-      link: 'software',
-      color: 'catppuccinRed'
-    },
-    {
-      name: 'ui designer',
-      link: 'ui',
-      color: 'catppuccinYellow'
-    },
-    {
-      name: 'illustrator',
-      link: 'graphic',
-      color: 'catppuccinTeal'
-    },
-  ]
-
   return (
     <div className="md:flex gap-2 leading-relaxed md:-translate-x-6 text-xs lg:text-lg text-catppuccinSubtext1">
-      {selections && selections.map((selection, i) => (
-        <a href={`/#projects?category=${selection.link}`} key={i} className='border-white border-opacity-20'>
+      {Object.values(categories).map((category, i) => (
+        <Link to={`/portfolio?category=${category.link}`} key={i} className='border-white border-opacity-20 ' target="_blank">
           <div className="flex gap-2 pr-2 pb-3 md:h-full group"
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
@@ -129,28 +108,12 @@ const Selection = () => {
               <CgChevronRight className="scale-125" />
             </motion.span>
 
-            {
-              selection.link == 'software' ? (
-                <span className="text-catppuccinSapphire">
-                  {selection.name}
-                </span>
-
-              ) :
-                selection.link == 'ui' ? (
-                  <span className="text-catppuccinSapphire">
-                    {selection.name}
-                  </span>
-
-                ) :
-                  selection.link == 'graphic' ? (
-                    <span className="text-catppuccinSapphire">
-                      {selection.name}
-                    </span>
-                  ) : ('')
+            {category.role !== undefined &&
+              <span className="text-catppuccinSapphire">{category.role}</span>
             }
 
           </div>
-        </a>
+        </Link>
       ))
       }
     </div >
