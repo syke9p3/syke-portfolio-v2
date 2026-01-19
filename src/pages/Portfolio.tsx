@@ -68,6 +68,8 @@ const filterData = (projects: IProject[], searchTerm: string, category: ProjectC
       return s.toLowerCase();
     });
 
+    console.log({category})
+
     // stack is an array with lowercased words inside 
     // for each string in stack, check if the string contains the key search term
     const stackHasSearchTerm = stack.some((s) => s.includes(search))
@@ -109,10 +111,10 @@ const Browser = () => {
       <Terminal header="Syke9p3 - Projects">
         {/* Filter */}
         <div className="grid sm:grid-cols-2 md:flex bg-[#21133d] gap-1 ">
-          {categories && Object.keys(categories).map((item, i) => (
+          {categories && categories.map((item, i) => (
             <button
-              onClick={() => { handleChangeCategory(item as CategoryType) }}
-              className={`px-3 py-2 border duration-75 ease-out leading-tight rounded-sm  hover:bg-[#3f2b66] ${item == category
+              onClick={() => { handleChangeCategory(item.link as CategoryType) }}
+              className={`px-3 py-2 border duration-75 ease-out leading-tight rounded-sm  hover:bg-[#3f2b66] ${item.link == category
                 ? `x-text-catppuccinMantle text-white bg-[#3c1f7b] hover:bg-[#3c1f7b]  border-[#ac70ff] `
                 : `border-transparent text-white opacity-80`
                 } `}
@@ -120,8 +122,8 @@ const Browser = () => {
             >
               <div className="flex gap-4 justify-between items-center text-sm font-semibold transition-all">
                 <div className="flex gap-2 justify-between items-center">
-                  <i className="">{categories.find((c) => c.link === item)?.icon}</i>
-                  {categories.find((c) => c.link === item)?.displayName}
+                  <i className="">{item.icon}</i>
+                  {item.displayName}
                 </div>
                 <i className="opacity-50">
                   <CgClose />
@@ -149,7 +151,7 @@ const Browser = () => {
             <BsSearch size={16} />
             <input
               type="text"
-              className="p-2 w-full outline-none bg-[#2d245b]"
+              className="p-2 w-full outline-none bg-[#2d245b] ring-0 focus:ring-0 focus:outline-none"
               placeholder="Search"
               value={searchTerm}
               onChange={handleSearchChange}
