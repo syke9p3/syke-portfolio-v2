@@ -8,6 +8,7 @@ import socials from "../data/socials";
 import avatar from "../assets/syke-0.jpg"
 import ResumeButton from "../components/ResumeButton";
 import Avatar from "../components/Avatar";
+import { categories } from "../data/port-links";
 
 const Home = () => {
   return (
@@ -63,13 +64,9 @@ const BannerText = () => {
         animate="shown"
         className="flex relative flex-col gap-3"
       >
-        {/* <div className="b">
-          <span className="p-1 my-2">@syke9p3</span>
-        </div> */}
         <p className="text-5xl font-bold lg:text-6xl">
           Hello I'm <span className="text-gradient">Kenth</span>!
         </p>
-        {/* <hr className="mb-2 opacity-20" /> */}
         <Selection />
         <div className="flex flex-col text-sm md:text-lg mt-4 max-w-md leading-relaxed text-catppuccinSubtext1">
           Graduating Computer Science student at the Polytechnic University of the Philippines - Manila, aspiring to be full stack developer.
@@ -89,28 +86,10 @@ const Selection = () => {
 
   const [hovered, setHovered] = useState<number | null>(null);
 
-  const selections = [
-    {
-      name: 'software developer',
-      link: 'software',
-      color: 'catppuccinRed'
-    },
-    {
-      name: 'ui designer',
-      link: 'ui',
-      color: 'catppuccinYellow'
-    },
-    {
-      name: 'illustrator',
-      link: 'graphic',
-      color: 'catppuccinTeal'
-    },
-  ]
-
   return (
     <div className="md:flex gap-2 leading-relaxed md:-translate-x-6 text-xs lg:text-lg text-catppuccinSubtext1">
-      {selections && selections.map((selection, i) => (
-        <a href={`/#projects?category=${selection.link}`} key={i} className='border-white border-opacity-20'>
+      {Object.values(categories).map((category, i) => (
+        <Link to={`/portfolio?category=${category.link}`} key={i} className='border-white border-opacity-20 ' target="_blank">
           <div className="flex gap-2 pr-2 pb-3 md:h-full group"
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
@@ -129,28 +108,12 @@ const Selection = () => {
               <CgChevronRight className="scale-125" />
             </motion.span>
 
-            {
-              selection.link == 'software' ? (
-                <span className="text-catppuccinSapphire">
-                  {selection.name}
-                </span>
-
-              ) :
-                selection.link == 'ui' ? (
-                  <span className="text-catppuccinSapphire">
-                    {selection.name}
-                  </span>
-
-                ) :
-                  selection.link == 'graphic' ? (
-                    <span className="text-catppuccinSapphire">
-                      {selection.name}
-                    </span>
-                  ) : ('')
+            {category.role !== undefined &&
+              <span className="text-catppuccinSapphire">{category.role}</span>
             }
 
           </div>
-        </a>
+        </Link>
       ))
       }
     </div >
@@ -167,7 +130,7 @@ const PersonalInfoWindow = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
-        className="items-center p-1 leading-[1.6em]"
+        className="items-center p-1 pb-12 leading-[1.6em]"
         style={{ fontFamily: "Fira Code" }}
       >
         <span className="ml-6"><b className=" text-catppuccinGreen font-normal">@syke9p3:~$ </b> <i>biofetch</i> </span>
@@ -181,9 +144,9 @@ const PersonalInfoWindow = () => {
               <p className="text-catppuccinGreen">@syke9p3</p>
               <p>------------- </p>
             </div>
-            <div className="flex overflow-x-scroll gap-2 pb-4">
+            <div className="flex gap-2 pb-4">
               <div>
-                <div className="flex w-[800px] gap-8 overflow-x-scroll">
+                <div className="flex w-[800px] gap-8">
                   <div>
                     <p>
                       <b className="text-catppuccinGreen">Name</b>: Kenth G. Saya-ang{" "}
@@ -205,14 +168,8 @@ const PersonalInfoWindow = () => {
         </div>
       </motion.div>
 
-      <div className="pb-4 lg:pb-12">
 
-      </div>
 
-      <div className="grid p-1 max-h-64 md:grid-cols-12">
-        <div className="col-span-4 max-w-full"></div>
-
-      </div>
     </Terminal>
 
 
@@ -233,7 +190,7 @@ const SocialsWindow = () => {
       >
 
         <div className="flex gap-1 p-4  ">
-          <div className=" overflow-x-scroll gap-2 pb-4 w-full">
+          <div className=" gap-2 pb-4 w-full">
             <p>
               <b className="text-catppuccinGreen font-normal">@syke9p3:~/contacts$ </b>  <i>ls -a links</i>
             </p>

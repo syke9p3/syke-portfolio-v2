@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { navItems } from "../data/navItems";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -11,11 +11,26 @@ const Navbar: React.FC = () => {
 
   const [isOpened, setIsOpened] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const navRef = useRef<HTMLElement>(null);
 
-  console.log(isOpened);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsOpened(false);
+      }
+    };
+
+    if (isOpened) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpened]);
 
   return (
-    <nav className="py-6 px-[5%] w-full ">
+    <nav ref={navRef} className="py-6 px-[5%] w-full ">
       <div className="container flex justify-between items-center mx-auto uppercase">
         <div className="flex justify-between items-center w-full">
           <NavLink
