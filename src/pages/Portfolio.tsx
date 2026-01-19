@@ -77,7 +77,7 @@ const filterData = (projects: IProject[], searchTerm: string, category: ProjectC
 
     return (
       (name.includes(search) || description.includes(search) || description.includes(search) || stackHasSearchTerm) &&
-      (category.link === CategoryType.ALL || type === category.displayName)
+      (category.link === CategoryType.ALL || type === category.link)
     );
   });
 }
