@@ -130,7 +130,7 @@ const PersonalInfoWindow = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
-        className="items-center p-1 leading-[1.6em]"
+        className="items-center p-1 pb-12 leading-[1.6em]"
         style={{ fontFamily: "Fira Code" }}
       >
         <span className="ml-6"><b className=" text-catppuccinGreen font-normal">@syke9p3:~$ </b> <i>biofetch</i> </span>
@@ -144,9 +144,9 @@ const PersonalInfoWindow = () => {
               <p className="text-catppuccinGreen">@syke9p3</p>
               <p>------------- </p>
             </div>
-            <div className="flex overflow-x-scroll gap-2 pb-4">
+            <div className="flex gap-2 pb-4">
               <div>
-                <div className="flex w-[800px] gap-8 overflow-x-scroll">
+                <div className="flex w-[800px] gap-8">
                   <div>
                     <p>
                       <b className="text-catppuccinGreen">Name</b>: Kenth G. Saya-ang{" "}
@@ -168,14 +168,8 @@ const PersonalInfoWindow = () => {
         </div>
       </motion.div>
 
-      <div className="pb-4 lg:pb-12">
 
-      </div>
 
-      <div className="grid p-1 max-h-64 md:grid-cols-12">
-        <div className="col-span-4 max-w-full"></div>
-
-      </div>
     </Terminal>
 
 
