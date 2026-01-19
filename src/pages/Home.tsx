@@ -190,7 +190,7 @@ const SocialsWindow = () => {
       >
 
         <div className="flex gap-1 p-4  ">
-          <div className=" overflow-x-scroll gap-2 pb-4 w-full">
+          <div className=" gap-2 pb-4 w-full">
             <p>
               <b className="text-catppuccinGreen font-normal">@syke9p3:~/contacts$ </b>  <i>ls -a links</i>
             </p>
